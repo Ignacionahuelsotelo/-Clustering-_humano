@@ -1,1 +1,1 @@
-Este es un trabajo practico de la Universidad de General Sarmiento, la consigna puede verse en (agregar enlace)
+Este es un trabajo practico de la Universidad de General Sarmiento, la consigna puede verse en http://virtual.grado.ungs.edu.ar/moodle/pluginfile.php?file=%2F67440%2Fmod_resource%2Fcontent%2F7%2Ftp2.2.2020.pdf
