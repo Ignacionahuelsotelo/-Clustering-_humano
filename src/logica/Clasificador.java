@@ -9,7 +9,7 @@ public class Clasificador {
 	//Agregamos a la persona a la lista de personas
 	public void cargarPersonas (Persona persona) {
 		if (!personas.contains(persona)) {
-		personas.add(persona);	
+			grafo.agregarVertice(persona);	
 		}
 	}
 	
@@ -17,7 +17,7 @@ public class Clasificador {
 		grafo = new Grafo(personas.size());
 		for (int i = 0; i < personas.size() - 1; i++) { // i termina en el ante ultimo
 			for (int j = i + 1; j < personas.size(); j++) { // j termina en el ultimo
-				grafo.agregarArista(personas.get(i), personas.get(j), i, j);
+				grafo.agregarArista(i, j);
 			}
 		}
 

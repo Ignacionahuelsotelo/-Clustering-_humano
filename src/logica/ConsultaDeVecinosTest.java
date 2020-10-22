@@ -48,9 +48,9 @@ public class ConsultaDeVecinosTest {
 
 	@Test
 	public void verticeUniversalTest() {
-		grafo.agregarArista(p2, p1, 1, 0);
-		grafo.agregarArista(p2, p3, 1, 2);
-		grafo.agregarArista(p2, p4, 1, 3);
+		grafo.agregarArista( 1, 0);
+		grafo.agregarArista( 1, 2);
+		grafo.agregarArista(1, 3);
 		Set<Persona> set = grafo.vecinos(1);
 		assertEquals(3, set.size());
 		assertTrue(set.contains(p1));
@@ -60,9 +60,9 @@ public class ConsultaDeVecinosTest {
 
 	@Test
 	public void verticeNormal() {
-		grafo.agregarArista(p2, p4, 1, 3);
-		grafo.agregarArista(p3, p4, 2, 3);
-		grafo.agregarArista(p3, p5, 2, 4);
+		grafo.agregarArista(1, 3);
+		grafo.agregarArista( 2, 3);
+		grafo.agregarArista(2, 4);
 		Set<Persona> set = grafo.vecinos(3);
 		assertEquals(2, set.size());
 		assertTrue(set.contains(p2));

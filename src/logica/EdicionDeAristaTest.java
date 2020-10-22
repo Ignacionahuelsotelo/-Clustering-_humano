@@ -31,74 +31,74 @@ public class EdicionDeAristaTest {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void primerVerticeNegativoTest() {
-		grafo.agregarArista(p1,p2,-1, 3);
+		grafo.agregarArista(-1, 3);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void primerVerticeExcedidoTest() {
-		grafo.agregarArista(p1,p2,5, 3);
+		grafo.agregarArista(5, 3);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void segundoVerticeNegativoTest() {
-		grafo.agregarArista(p2,p1,1, -3);
+		grafo.agregarArista(1, -3);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void segundoVerticeExcedidoTest() {
-		grafo.agregarArista(p1,p2,1, 5);
+		grafo.agregarArista(1, 5);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void agregarLoopsTest() {
-		grafo.agregarArista(p2,p2,1, 1);
+		grafo.agregarArista(1, 1);
 	}
 
 	@Test
 	public void testExisteArista() {
-		grafo.agregarArista(p3,p4,2, 3);
-		assertTrue(grafo.existeArista(p3, 3));
-		assertFalse(grafo.existeArista(p2, 1));
+		grafo.agregarArista(2, 3);
+		assertTrue(grafo.existeArista(2, 3));
+		assertFalse(grafo.existeArista(0, 1));
 	}
 
 	@Test
 	public void testExisteAristaOpuesta() {
-		grafo.agregarArista(p3,p4,2, 3);
-		assertTrue(grafo.existeArista(p4, 2));
+		grafo.agregarArista(2, 3);
+		assertTrue(grafo.existeArista(3, 2));
 	}
 
 	@Test
 	public void testAristaInexistente() {
-		grafo.agregarArista(p3,p4,2, 3);
-		assertFalse(grafo.existeArista(p2, 1));
+		grafo.agregarArista(2, 3);
+		assertFalse(grafo.existeArista(1, 3));
 	}
 
 	@Test
 	public void eliminarAristaExistente() {
-		grafo.agregarArista(p3,p5,2, 4);
-		grafo.eliminarArista(p3,p5,2, 4);
-		assertFalse(grafo.existeArista(p3, 4));
+		grafo.agregarArista(2, 4);
+		grafo.eliminarArista(2, 4);
+		assertFalse(grafo.existeArista(2, 4));
 	}
 
 	@Test
 	public void eliminarAristaInexistente() {
-		grafo.eliminarArista(p3,p5,2, 4);
-		assertFalse(grafo.existeArista(p3, 4));
+		grafo.eliminarArista(2, 4);
+		assertFalse(grafo.existeArista(2, 4));
 	}
 
 	@Test
 	public void eliminarAristaDosVeces() {
-		grafo.agregarArista(p3,p5,2, 4);
-		grafo.eliminarArista(p3,p5,2, 4);
-		grafo.eliminarArista(p3,p5,2, 4);
-		assertFalse(grafo.existeArista(p3, 4));
+		grafo.agregarArista(2, 4);
+		grafo.eliminarArista(2, 4);
+		grafo.eliminarArista(2, 4);
+		assertFalse(grafo.existeArista(2, 4));
 	}
 
 	@Test
 	public void agregarAristaDosVeces() {
-		grafo.agregarArista(p3,p5,2, 4);
-		grafo.agregarArista(p3,p5,2, 4);
-		assertTrue(grafo.existeArista(p3, 4));
+		grafo.agregarArista(2, 4);
+		grafo.agregarArista(2, 4);
+		assertTrue(grafo.existeArista(2, 4));
 	}
 
 }

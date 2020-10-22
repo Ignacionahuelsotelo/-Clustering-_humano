@@ -7,7 +7,7 @@ import java.util.Set;
 public class Grafo {
 	    // Representamos el grafo por su matriz de adyacencia
 	    private ArrayList<HashSet<Persona> > vecinos;
-	    private Set<Persona> vertices;
+	    private ArrayList<Persona> vertices;
 
 	    // La cantidad de vertices esta predeterminada desde el constructor
 	    public Grafo(int a)
@@ -15,19 +15,19 @@ public class Grafo {
 	    	vecinos = new ArrayList<HashSet<Persona> >();
 	    	for(int i=0; i<a; ++i) //agrega hashSet vacios con la cantidad de vertices
 	    	      vecinos.add(new HashSet<Persona>());
-	    	vertices= new HashSet<Persona>();
+	    	vertices= new ArrayList<Persona>();
 	    }
 	        
 	   
 		// Getters y setters de aristas 
-	    public void agregarArista(Persona persona1,  Persona persona2, int i1, int i2 ) {
+	    public void agregarArista(int i1, int i2 ) {
 	    	
 	    	verificarVertice(i1);
 			verificarVertice(i2);
 			verificarDistintos(i1,i2);
 			
-			vecinos.get(i1).add(persona2);
-			vecinos.get(i2).add(persona1);
+			vecinos.get(i1).add(vertices.get(i2));
+			vecinos.get(i2).add(vertices.get(i1));
 		}
 	    
 	    public void agregarVertice(Persona persona) {
@@ -36,19 +36,19 @@ public class Grafo {
 			
 		}
 
-		public void eliminarArista(Persona persona1,  Persona persona2, int i1, int i2) {
+		public void eliminarArista(int i1, int i2) {
 			verificarVertice(i1);
 			verificarVertice(i2);
 			verificarDistintos(i1,i2);
-			vecinos.get(i1).remove(persona2);
-			vecinos.get(i2).remove(persona1);
+			vecinos.get(i1).remove(vertices.get(i2));
+			vecinos.get(i2).remove(vertices.get(i1));
 		}
 	    	
-		public boolean existeArista(Persona persona, int i) {
+		public boolean existeArista(int i,int j) {
 			verificarVertice(i);
-//			verificarVertice(i2);
-//			verificarDistintos(i1,i2);
-			return vecinos.get(i).contains(persona);
+			verificarVertice(j);
+			verificarDistintos(i,j);
+			return vecinos.get(i).contains(vertices.get(j));
 		}
 
 		public Set<Persona> vecinos(int i){
@@ -56,7 +56,7 @@ public class Grafo {
 			return vecinos.get(i);
 		}
 	    
-		public Set<Persona> vertices(){
+		public ArrayList<Persona> vertices(){
 			return vertices;
 		}
 	
