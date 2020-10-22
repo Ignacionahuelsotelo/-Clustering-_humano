@@ -7,7 +7,8 @@ public class Persona {
 	private int ciencia;
 	private int arte;
 	
-	public Persona (int musica, int deporte, int espectaculo, int ciencia, int arte ) {
+	
+	public Persona (String nombre, int musica, int deporte, int espectaculo, int ciencia, int arte ) {
 		this.musica = musica;
 		this.deporte = deporte;
 		this.espectaculo = espectaculo;
@@ -19,41 +20,28 @@ public class Persona {
 		return musica;
 	}
 
-	public void setMusica(int musica) {
-		this.musica = musica;
-	}
+	
 
 	public int getDeporte() {
 		return deporte;
 	}
 
-	public void setDeporte(int deporte) {
-		this.deporte = deporte;
-	}
-
+	
 	public int getEspectaculo() {
 		return espectaculo;
 	}
 
-	public void setEspectaculo(int espectaculo) {
-		this.espectaculo = espectaculo;
-	}
-
+	
 	public int getCiencia() {
 		return ciencia;
 	}
 
-	public void setCiencia(int ciencia) {
-		this.ciencia = ciencia;
-	}
-
+	
 	public int getArte() {
 		return arte;
 	}
 
-	public void setArte(int arte) {
-		this.arte = arte;
-	}
+	
 	
 	public int indiceDeSimilaridad (Persona otro) {
 		int indiceMusica = Math.abs(this.musica - otro.getMusica());

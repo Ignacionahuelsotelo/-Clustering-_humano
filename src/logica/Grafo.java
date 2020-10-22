@@ -10,34 +10,49 @@ public class Grafo {
 	    private Set<Persona> vertices;
 
 	    // La cantidad de vertices esta predeterminada desde el constructor
-	    public Grafo(int vertices)
+	    public Grafo(int a)
 	    {
 	    	vecinos = new ArrayList<HashSet<Persona> >();
-	    	for(int i=0; i<vertices; ++i) //agrega hashSet vacios con la cantidad de vertices
-	    	vecinos.add(new HashSet<Persona>());
+	    	for(int i=0; i<a; ++i) //agrega hashSet vacios con la cantidad de vertices
+	    	      vecinos.add(new HashSet<Persona>());
+	    	vertices= new HashSet<Persona>();
 	    }
 	        
 	   
 		// Getters y setters de aristas 
 	    public void agregarArista(Persona persona1,  Persona persona2, int i1, int i2 ) {
+	    	
+	    	verificarVertice(i1);
+			verificarVertice(i2);
+			verificarDistintos(i1,i2);
+			
 			vecinos.get(i1).add(persona2);
 			vecinos.get(i2).add(persona1);
 		}
 	    
 	    public void agregarVertice(Persona persona) {
 			vertices.add(persona);
+			vecinos.add(new HashSet<Persona>());
+			
 		}
 
 		public void eliminarArista(Persona persona1,  Persona persona2, int i1, int i2) {
+			verificarVertice(i1);
+			verificarVertice(i2);
+			verificarDistintos(i1,i2);
 			vecinos.get(i1).remove(persona2);
 			vecinos.get(i2).remove(persona1);
 		}
 	    	
 		public boolean existeArista(Persona persona, int i) {
+			verificarVertice(i);
+//			verificarVertice(i2);
+//			verificarDistintos(i1,i2);
 			return vecinos.get(i).contains(persona);
 		}
 
 		public Set<Persona> vecinos(int i){
+			verificarVertice(i);
 			return vecinos.get(i);
 		}
 	    
@@ -45,7 +60,22 @@ public class Grafo {
 			return vertices;
 		}
 	
+		public int tamanio() {
+			return vertices.size();
+		}
+		
+		
+		private void verificarDistintos(int i, int j) {
+			if(i==j)
+				throw new IllegalArgumentException("No se permiten loops: (" +"i="+i +", j="+j);
+		}
 
+		private void verificarVertice(int i) {
+			if (i < 0)
+				throw new IllegalArgumentException("El vertice no puede ser negativo: " + i);
+			if (i >= this.tamanio())
+				throw new IllegalArgumentException("El vertice no existe: " + i);
+		}
 //	    // Agregado de aristas
 //	    public void agregarArista(int i, int j, int peso)
 //	    {
