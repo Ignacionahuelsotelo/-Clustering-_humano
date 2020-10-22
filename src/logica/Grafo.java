@@ -1,4 +1,4 @@
-package Logica;
+package logica;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -7,6 +7,7 @@ import java.util.Set;
 public class Grafo {
 	    // Representamos el grafo por su matriz de adyacencia
 	    private ArrayList<HashSet<Persona> > vecinos;
+	    private Set<Persona> vertices;
 
 	    // La cantidad de vertices esta predeterminada desde el constructor
 	    public Grafo(int vertices)
@@ -22,6 +23,10 @@ public class Grafo {
 			vecinos.get(i1).add(persona2);
 			vecinos.get(i2).add(persona1);
 		}
+	    
+	    public void agregarVertice(Persona persona) {
+			vertices.add(persona);
+		}
 
 		public void eliminarArista(Persona persona1,  Persona persona2, int i1, int i2) {
 			vecinos.get(i1).remove(persona2);
@@ -32,7 +37,13 @@ public class Grafo {
 			return vecinos.get(i).contains(persona);
 		}
 
+		public Set<Persona> vecinos(int i){
+			return vecinos.get(i);
+		}
 	    
+		public Set<Persona> vertices(){
+			return vertices;
+		}
 	
 
 //	    // Agregado de aristas

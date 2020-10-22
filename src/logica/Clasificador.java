@@ -1,8 +1,8 @@
-package Logica;
+package logica;
 
 import java.util.ArrayList;
 
-public class Principal {
+public class Clasificador {
 	Grafo grafo;
 	ArrayList <Persona> personas = new ArrayList <Persona> ();
 	
