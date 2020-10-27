@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-public class BFS {
+public class BFS<T> {
 
-	private static ArrayList<Integer> lista;
+	private static ArrayList<Persona> lista;
 	private static boolean[] marcados;
 	
 
@@ -14,39 +14,45 @@ public class BFS {
 	public static boolean esConexo(Grafo g) {
 		if(g==null)
 			throw new IllegalArgumentException("Se intento consultar un grafo null");
-		return false;
+		
+		Persona origen = g.vertices().get(0);
+		Set<Persona> alcanzables = alcanzables(g,origen);
+		
+		return alcanzables.size() == g.tamanio();
 	}
 
 
-	public static Set<Integer> alcanzables(Grafo grafo, int origen) {
-		Set<Integer> ret = new HashSet<Integer>();
+	public static Set<Persona> alcanzables(Grafo grafo, Persona origen) {
+		Set<Persona> ret = new HashSet<Persona>();
 		inicializar(grafo,origen);
 		
 		while (lista.size()>0) {
-			int i = lista.get(0);
-			marcados[i]=true;
-			agregarVecinosPendientes(grafo, i);
-			ret.add(i);
+			Persona actual = lista.get(0);
+			marcados[grafo.vertices().indexOf(actual)]=true;
+			agregarVecinosPendientes(grafo, actual);
+			ret.add(actual);
 			lista.remove(0);
 		}
 		return ret;
 	}
 
 
-	private static void agregarVecinosPendientes(Grafo grafo, int i) {
-		for (Persona vertice : grafo.vecinos(i)) {
-			if(!marcados[vertice] && !lista.contains(vertice)) {
-				lista.add(vertice);
+	private static void agregarVecinosPendientes(Grafo grafo, Persona actual) {
+		int i = grafo.vertices().indexOf(actual);
+		ArrayList<Persona> vertices = grafo.vertices();
+		for (Persona vecino : grafo.vecinos(i)) {
+			if(!marcados[vertices.indexOf(vecino)] && !lista.contains(vecino)) {
+				lista.add(vecino);
 			}
 		}
 	
 	}
 
 
-	private static void inicializar(Grafo grafo, int origen) {
-		lista= new ArrayList<Integer>();
+	private static void inicializar(Grafo grafo, Persona origen) {
+		lista= new ArrayList<Persona>();
 		lista.add(origen);
-		marcados = new boolean[grafo.vertices()];
+		marcados = new boolean[grafo.vertices().size()];
 		
 	}
 

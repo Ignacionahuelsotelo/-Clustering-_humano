@@ -9,9 +9,9 @@ import org.junit.Test;
 
 public class Assert {
 
-	public static void iguales(int[] esperados, Set<Integer> alcanzables) {
+	public static void iguales(Persona[] esperados, Set<Persona> alcanzables) {
 		assertEquals(esperados.length,alcanzables.size());		
-		for(int element:esperados) {
+		for(Persona element : esperados) {
 			assertTrue(alcanzables.contains(element));
 		}
 	}

@@ -10,25 +10,25 @@ import org.junit.Test;
 public class BFSTest {
 
 	Grafo grafo;
+	Persona p0;
 	Persona p1;
 	Persona p2;
 	Persona p3;
-	Persona p4;
 
 	@Before
 	public void setUp() throws Exception {
 		grafo = new Grafo(3);
-		p1 = new Persona("A", 1, 1, 1, 1, 1);
-		p2 = new Persona("B", 1, 1, 1, 1, 1);
-		p3 = new Persona("C", 1, 1, 1, 1, 1);
-		p4  = new Persona("D", 1, 1, 1, 1, 1);
+		p0 = new Persona("A", 1, 1, 1, 1, 1);
+		p1 = new Persona("B", 1, 1, 1, 1, 1);
+		p2 = new Persona("C", 1, 1, 1, 1, 1);
+		p3  = new Persona("D", 1, 1, 1, 1, 1);
+		grafo.agregarVertice(p0);
 		grafo.agregarVertice(p1);
 		grafo.agregarVertice(p2);
 		grafo.agregarVertice(p3);
-		grafo.agregarVertice(p4);
-		grafo.agregarArista(p1, p2, 0, 1);
-		grafo.agregarArista(p1, p3, 0, 2);
-		grafo.agregarArista(p3, p4, 2, 3);
+		grafo.agregarArista(0, 1);
+		grafo.agregarArista(0, 2);
+		grafo.agregarArista(2, 3);
 
 	}
 
@@ -38,16 +38,45 @@ public class BFSTest {
 	}
 
 	@Test
-	public void testConexo() {
-		Set<Integer> alcanzables = BFS.alcanzables(grafo,0);
-		int[] esperados = {0,1,2,3};
+	public void alcanzablesConextoTest() {
+		Set<Persona> alcanzables = BFS.alcanzables(grafo,p0);
+		Persona[] esperados = {p0,p1,p2,p3};
 		
 		Assert.iguales(esperados, alcanzables);
 		
 	}
 	
+	@Test
+	public void esConexoTestVerdadero() {
+		assertTrue(BFS.esConexo(grafo));
+		
+	}
+
+	
+	@Test
 	public void testDesconexo() {
-		grafo.eliminarArista(p3, p4, 2, 3);
+		grafo.eliminarArista(2, 3);
+		assertFalse(BFS.esConexo(grafo));
+	}
+	
+	@Test
+	public void alcanzablesConextoDesdeP0Test() {
+		grafo.eliminarArista(2, 3);
+		Set<Persona> alcanzables = BFS.alcanzables(grafo,p0);
+		Persona[] esperados = {p0,p1,p2};
+		
+		Assert.iguales(esperados, alcanzables);
+		
+	}
+	
+	@Test
+	public void alcanzablesConextoDesdeP3Test() {
+		grafo.eliminarArista(2, 3);
+		Set<Persona> alcanzables = BFS.alcanzables(grafo,p3);
+		Persona[] esperados = {p3};
+		
+		Assert.iguales(esperados, alcanzables);
+		
 	}
 }
 
