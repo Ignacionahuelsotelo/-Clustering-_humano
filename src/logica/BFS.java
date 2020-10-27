@@ -6,7 +6,7 @@ import java.util.Set;
 
 public class BFS<T> {
 
-	private static ArrayList<Persona> lista;
+	private static ArrayList<Persona> pendientes;
 	private static boolean[] marcados;
 	
 
@@ -23,26 +23,25 @@ public class BFS<T> {
 
 
 	public static Set<Persona> alcanzables(Grafo grafo, Persona origen) {
-		Set<Persona> ret = new HashSet<Persona>();
+		Set<Persona> alcanzados = new HashSet<Persona>();
 		inicializar(grafo,origen);
 		
-		while (lista.size()>0) {
-			Persona actual = lista.get(0);
-			marcados[grafo.vertices().indexOf(actual)]=true;
+		while (pendientes.size()>0) {
+			Persona actual = pendientes.get(0);
+			marcados[grafo.obtenerIndice(actual)]=true;
 			agregarVecinosPendientes(grafo, actual);
-			ret.add(actual);
-			lista.remove(0);
+			alcanzados.add(actual);
+			pendientes.remove(0);
 		}
-		return ret;
+		return alcanzados;
 	}
 
 
 	private static void agregarVecinosPendientes(Grafo grafo, Persona actual) {
 		int i = grafo.vertices().indexOf(actual);
-		ArrayList<Persona> vertices = grafo.vertices();
 		for (Persona vecino : grafo.vecinos(i)) {
-			if(!marcados[vertices.indexOf(vecino)] && !lista.contains(vecino)) {
-				lista.add(vecino);
+			if(!marcados[grafo.obtenerIndice(vecino)] && !pendientes.contains(vecino)) {
+				pendientes.add(vecino);
 			}
 		}
 	
@@ -50,8 +49,8 @@ public class BFS<T> {
 
 
 	private static void inicializar(Grafo grafo, Persona origen) {
-		lista= new ArrayList<Persona>();
-		lista.add(origen);
+		pendientes= new ArrayList<Persona>();
+		pendientes.add(origen);
 		marcados = new boolean[grafo.vertices().size()];
 		
 	}

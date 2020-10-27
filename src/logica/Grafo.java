@@ -76,6 +76,27 @@ public class Grafo {
 			if (i >= this.tamanio())
 				throw new IllegalArgumentException("El vertice no existe: " + i);
 		}
+		
+		public int obtenerIndice(Persona p) {
+			return vertices.indexOf(p);
+		}
+		
+		public int getPeso(int i, int j) {
+			verificarVertice(i);
+			verificarVertice(j);
+			verificarDistintos(i,j);
+			return vertices.get(i).indiceDeSimilaridad(vertices.get(j));
+		}
+		
+		public void completarGrafo() {
+			for(int i=0;i<tamanio()-1;i++) {
+	    		for(int j=i+1;j<tamanio();j++) {
+	    			this.agregarArista(i, j);
+	    	}
+		
+		}
+		}
+		
 //	    // Agregado de aristas
 //	    public void agregarArista(int i, int j, int peso)
 //	    {
