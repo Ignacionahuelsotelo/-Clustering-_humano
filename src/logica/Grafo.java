@@ -138,65 +138,7 @@ public class Grafo {
 			eliminarArista(iMin,jMin);
 
 		}
-		
-		
-//	    // Agregado de aristas
-//	    public void agregarArista(int i, int j, int peso)
-//	    {
-//	        verificarVertice(i);
-//	        verificarVertice(j);
-//	        verificarDistintos(i, j);
-//
-//	        A[i][j] = peso;
-//	        A[j][i] = peso;
-//	    }
-//
-//	    // Eliminacion de aristas
-//	    public void eliminarArista(int i, int j)
-//	    {
-//	        verificarVertice(i);
-//	        verificarVertice(j);
-//	        verificarDistintos(i, j);
-//
-//	        A[i][j] = 0;
-//	        A[j][i] = 0;
-//	    }
-//	// Informa si existe la arista especificada
-//	    public boolean existeArista(int i, int j)
-//	    {
-//	        verificarVertice(i);
-//	        verificarVertice(j);
-//	        verificarDistintos(i, j);
-//	        if (A[i][j] != 0) {
-//	        	return true;
-//	        }
-//	        return false;
-//	    }
-//
-//	    // Cantidad de vertices
-//	    public int tamano()
-//	    {
-//	        return A.length;
-//	    }
-//
-//	    
-//
-//	    // Verifica que sea un vertice valido
-//	    private void verificarVertice(int i)
-//	    {
-//	        if( i < 0 )
-//	            throw new IllegalArgumentException("El vertice no puede ser negativo: " + i);
-//
-//	        if( i >= A.length )
-//	            throw new IllegalArgumentException("Los vertices deben estar entre 0 y |V|-1: " + i);
-//	    }
-//
-//	    // Verifica que i y j sean distintos
-//	    private void verificarDistintos(int i, int j)
-//	    {
-//	        if( i == j )
-//	            throw new IllegalArgumentException("No se permiten loops: (" + i + ", " + j + ")");
-//	    }
+
 	}
 
 

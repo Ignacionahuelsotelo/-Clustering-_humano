@@ -19,9 +19,9 @@ public class EdicionDeAristaTest {
 		grafo = new Grafo(5);
 		p1 = new Persona("A", 1, 1, 1, 1, 1);
 		p2 = new Persona("B", 1, 1, 1, 1, 1);
-		p3 = new Persona("C", 1, 1, 1, 1, 1);
+		p3 = new Persona("C", 0, 0, 0, 0, 0);
 		p4  = new Persona("D", 1, 1, 1, 1, 1);
-		p5  = new Persona("E", 1, 1, 1, 1, 1);
+		p5  = new Persona("E", 5, 5, 5, 5, 5);
 		grafo.agregarVertice(p1);
 		grafo.agregarVertice(p2);
 		grafo.agregarVertice(p3);
@@ -99,6 +99,15 @@ public class EdicionDeAristaTest {
 		grafo.agregarArista(2, 4);
 		grafo.agregarArista(2, 4);
 		assertTrue(grafo.existeArista(2, 4));
+	}
+	
+	@Test
+	public void eliminarAristaMasPesada() {
+		grafo.completarGrafo();
+		
+		grafo.eliminarNodoMasPesado();
+		assertFalse(grafo.existeArista(4,2));
+		assertTrue (grafo.existeArista(1, 2));
 	}
 
 }

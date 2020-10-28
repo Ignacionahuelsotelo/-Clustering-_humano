@@ -1,4 +1,4 @@
-package logica;
+package datos;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -6,6 +6,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import com.google.gson.*;
+
+import logica.Persona;
 
 public class PersonasJSON {
 	private ArrayList<Persona> personas;
