@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-public class BFS<T> {
+public class BFS{
 
 	private static ArrayList<Persona> pendientes;
 	private static boolean[] marcados;
@@ -15,14 +15,14 @@ public class BFS<T> {
 		if(g==null)
 			throw new IllegalArgumentException("Se intento consultar un grafo null");
 		
-		Persona origen = g.vertices().get(0);
-		Set<Persona> alcanzables = alcanzables(g,origen);
+	
+		Set<Persona> alcanzables = alcanzables(g,0);
 		
 		return alcanzables.size() == g.tamanio();
 	}
 
 
-	public static Set<Persona> alcanzables(Grafo grafo, Persona origen) {
+	public static Set<Persona> alcanzables(Grafo grafo, int origen) {
 		Set<Persona> alcanzados = new HashSet<Persona>();
 		inicializar(grafo,origen);
 		
@@ -48,9 +48,9 @@ public class BFS<T> {
 	}
 
 
-	private static void inicializar(Grafo grafo, Persona origen) {
+	private static void inicializar(Grafo grafo, int origen) {
 		pendientes= new ArrayList<Persona>();
-		pendientes.add(origen);
+		pendientes.add(grafo.getNodo(origen));
 		marcados = new boolean[grafo.vertices().size()];
 		
 	}

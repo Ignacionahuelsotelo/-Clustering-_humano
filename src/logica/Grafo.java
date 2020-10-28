@@ -97,6 +97,49 @@ public class Grafo {
 		}
 		}
 		
+		public Persona getNodo(int i) {
+			verificarVertice(i);
+			return vertices.get(i);
+		}
+		
+		
+		public int[][] calcularPesos(){
+			int n= tamanio();
+			int[][] pesos = new int[n][n];
+			for (int i = 0; i < n - 1; i++) {
+				for (int j = i + 1; j < n; j++) {
+					if (existeArista(i, j))
+						pesos[i][j] = getPeso(i, j);
+					else
+						pesos[i][j] = -1;
+				}
+			}
+			return pesos;
+		}
+		
+		public void eliminarNodoMasPesado() {
+			int[][] pesos = calcularPesos();
+			int maxArista=0;
+			
+			int n = tamanio();
+			int iMin = 0;
+			int jMin = 0;
+			
+			for (int i = 0; i < n - 1; i++) {
+				for (int j = i + 1; j < n; j++) {
+					if (pesos[i][j] > maxArista && pesos[i][j] >= 0) {
+						maxArista = pesos[i][j];
+						iMin = i;
+						jMin = j;
+					}
+				}
+			}
+
+			eliminarArista(iMin,jMin);
+
+		}
+		
+		
 //	    // Agregado de aristas
 //	    public void agregarArista(int i, int j, int peso)
 //	    {

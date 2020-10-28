@@ -39,7 +39,7 @@ public class BFSTest {
 
 	@Test
 	public void alcanzablesConextoTest() {
-		Set<Persona> alcanzables = BFS.alcanzables(grafo,p0);
+		Set<Persona> alcanzables = BFS.alcanzables(grafo,0);
 		Persona[] esperados = {p0,p1,p2,p3};
 		
 		Assert.iguales(esperados, alcanzables);
@@ -62,7 +62,7 @@ public class BFSTest {
 	@Test
 	public void alcanzablesConextoDesdeP0Test() {
 		grafo.eliminarArista(2, 3);
-		Set<Persona> alcanzables = BFS.alcanzables(grafo,p0);
+		Set<Persona> alcanzables = BFS.alcanzables(grafo,0);
 		Persona[] esperados = {p0,p1,p2};
 		
 		Assert.iguales(esperados, alcanzables);
@@ -72,7 +72,7 @@ public class BFSTest {
 	@Test
 	public void alcanzablesConextoDesdeP3Test() {
 		grafo.eliminarArista(2, 3);
-		Set<Persona> alcanzables = BFS.alcanzables(grafo,p3);
+		Set<Persona> alcanzables = BFS.alcanzables(grafo,3);
 		Persona[] esperados = {p3};
 		
 		Assert.iguales(esperados, alcanzables);

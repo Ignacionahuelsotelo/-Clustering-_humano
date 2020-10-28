@@ -7,7 +7,6 @@ import org.junit.Test;
 
 public class AGMTest {
 
-	AGM agm;
 	Grafo grafo;
 	Persona p0;
 	Persona p1;
@@ -17,7 +16,7 @@ public class AGMTest {
 	@Before
 	public void setUp() throws Exception {
 		
-		grafo = new Grafo(3);
+		grafo = new Grafo(4);
 		p0 = new Persona("A", 5, 5, 5, 5, 5);
 		p1 = new Persona("B", 4, 4, 4, 4, 4);
 		p2 = new Persona("C", 0, 0, 0, 0, 0);
@@ -28,13 +27,26 @@ public class AGMTest {
 		grafo.agregarVertice(p3);
 		grafo.completarGrafo();
 
-		agm = new AGM(grafo);
+		
 	}
 
+	@Test(expected = NullPointerException.class)
+	public void grafoNullTest() {
+	    AGM.generadoMin(null);
+	   
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void grafoNoConexoTest() {
+	    grafo.eliminarArista(0, 1);
+	    grafo.eliminarArista(0, 2);
+	    grafo.eliminarArista(0, 3);
+	    AGM.generadoMin(grafo);
+	}
+	
 	@Test
-	public void test() {
-		Grafo minimo = agm.generadoMin();
+	public void AGMTtest() {
+		Grafo minimo = AGM.generadoMin(grafo);
 		assertFalse(minimo.existeArista(0, 2));
 	}
-
 }
