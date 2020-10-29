@@ -1,16 +1,17 @@
 package visual;
 
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
-import javax.swing.JScrollPane;
-import javax.swing.JScrollBar;
 import javax.swing.JPanel;
+import javax.swing.JLabel;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 
-public class Main {
+public class PruebaVentana {
 
 	private JFrame frame;
-	private VentanaInicial ventanaInicial;
 
 	/**
 	 * Launch the application.
@@ -19,7 +20,7 @@ public class Main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Main window = new Main();
+					PruebaVentana window = new PruebaVentana();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -31,9 +32,7 @@ public class Main {
 	/**
 	 * Create the application.
 	 */
-	public Main() {
-		
-		
+	public PruebaVentana() {
 		initialize();
 	}
 
@@ -46,10 +45,19 @@ public class Main {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-	 
+		 
 		frame.setVisible(true);
 		
-		ventanaInicial = new VentanaInicial();
+		makeFrameFullSize(frame);
+		frame.getContentPane().setLayout(null);
 		
+		JPanel panel = new JPanel();
+		panel.setBounds(10, 11, 1264, 150);
+		frame.getContentPane().add(panel);
+	}
+	
+	private void makeFrameFullSize(JFrame aFrame) {
+	    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	    aFrame.setSize(screenSize.width, screenSize.height);
 	}
 }
