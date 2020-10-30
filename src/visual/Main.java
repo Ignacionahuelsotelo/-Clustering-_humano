@@ -11,6 +11,7 @@ public class Main {
 
 	private JFrame frame;
 	private VentanaInicial ventanaInicial;
+	private VentanaGrafo ventanaGrafo;
 
 	/**
 	 * Launch the application.
@@ -50,6 +51,10 @@ public class Main {
 		frame.setVisible(true);
 		
 		ventanaInicial = new VentanaInicial();
+		
+		ventanaGrafo = new VentanaGrafo();
+		
+		
 		
 	}
 }
