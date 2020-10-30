@@ -42,10 +42,10 @@ public class VentanaGrafo {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		//makeFrameFullSize (frame);
+		makeFrameFullSize (frame);
 		
 		
-		//frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frame.getContentPane().setLayout(null);
 		
 		JPanel panelGrafo = new JPanel();
