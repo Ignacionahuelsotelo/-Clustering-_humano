@@ -32,7 +32,7 @@ public class Clasificador {
 	//Carga los atributos de las personas y las agrega a personas
 	public void cargarPersona (String nombre, int musica, int deporte, int espectaculo, int ciencia, int arte) {
 		Persona persona = new Persona (nombre, musica, deporte, espectaculo, ciencia, arte);
-		personas.add(persona);	
+		agregarPersonas(persona);	
 	}
 	
 	public Grafo dividirGrafo () {
@@ -42,8 +42,9 @@ public class Clasificador {
 		return nuevo;
 	}
 	
-	public void agruparPersonas () {
+	public ArrayList<Set <Persona>> agruparPersonas () {
 		Grafo nuevo = dividirGrafo();
+		ArrayList <Set <Persona>> grupos = new ArrayList<Set <Persona>>();
 		Set <Persona> grupo1 = BFS.alcanzables(nuevo, 0);
 		Set <Persona> grupo2 = new HashSet<Persona> ();
 		for (int i = 0 ; i< personas.size(); i++) {
@@ -51,8 +52,11 @@ public class Clasificador {
 				grupo2.add(personas.get(i));
 			}
 		}
+		grupos.add(grupo1);
+		grupos.add(grupo2);
 		System.out.println("Grupo1 =" + grupo1.toString());
 		System.out.println("Grupo2 =" + grupo2.toString());
+		return grupos;
 		
 	}
 	
