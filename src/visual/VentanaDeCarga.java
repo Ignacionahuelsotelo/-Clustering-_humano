@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 
 public class VentanaDeCarga {
@@ -58,71 +59,55 @@ public class VentanaDeCarga {
 		
 		frame.getContentPane().add(panelCarga);
 		
-		JLabel lblNewLabel = new JLabel("CARGAR DATOS");
-		lblNewLabel.setBounds(391, 11, 395, 77);
-		panelCarga.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("NOMBRE :");
-		lblNewLabel_1.setBounds(28, 147, 162, 40);
-		panelCarga.add(lblNewLabel_1);
+		//Crea los JLABEL
+		crearJLabel(panelCarga, "CARGAR DATOS", 391, 11 );
+		crearJLabel(panelCarga, "NOMBRE :", 28, 147);
+		crearJLabel(panelCarga, "ARTE", 28, 198 );
+		crearJLabel(panelCarga, "MUSICA", 28, 269 );
+		crearJLabel(panelCarga, "DEPORTE", 28, 343 );
+		crearJLabel(panelCarga, "ESPECTÁCULO", 28, 435 );
+		crearJLabel(panelCarga, "CIENCIA",28, 542 );
+	
 		
-		JLabel lblNewLabel_1_1 = new JLabel("ARTE:");
-		lblNewLabel_1_1.setBounds(28, 198, 162, 40);
-		panelCarga.add(lblNewLabel_1_1);
+		//Crea los comboBox
+		crearComboBox(panelCarga,230, 208);
+		crearComboBox(panelCarga,230, 289);
+		crearComboBox(panelCarga,230, 353);
+		crearComboBox(panelCarga,230, 445);
+		crearComboBox(panelCarga,230, 552);
 		
-		JLabel lblNewLabel_1_2 = new JLabel("MUSICA:");
-		lblNewLabel_1_2.setBounds(28, 269, 162, 40);
-		panelCarga.add(lblNewLabel_1_2);
 		
-		JLabel lblNewLabel_1_3 = new JLabel("DEPORTE :");
-		lblNewLabel_1_3.setBounds(28, 343, 162, 40);
-		panelCarga.add(lblNewLabel_1_3);
+//		//Para obtener la opción seleccionada
+//		int indice = comboBox.getSelectedIndex();
+//		System.out.println("El indice seleccionado es" + indice);
 		
-		JLabel lblNewLabel_1_4 = new JLabel("ESPECTACULO:");
-		lblNewLabel_1_4.setBounds(28, 435, 162, 40);
-		panelCarga.add(lblNewLabel_1_4);
 		
-		JLabel lblNewLabel_1_5 = new JLabel("CIENCIA :");
-		lblNewLabel_1_5.setBounds(28, 542, 162, 40);
-		panelCarga.add(lblNewLabel_1_5);
+		//Crea los botones
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(308, 208, 28, 20);
-		panelCarga.add(comboBox);
+		crearBotones(panelCarga, "Elegir foto" , 755, 182);
+		crearBotones(panelCarga, "GUARDAR" , 564, 617);
+		crearBotones(panelCarga, "Volver al menú principal" , 720, 617);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(308, 289, 28, 20);
-		panelCarga.add(comboBox_1);
-		
-		JComboBox comboBox_2 = new JComboBox();
-		comboBox_2.setBounds(308, 353, 28, 20);
-		panelCarga.add(comboBox_2);
-		
-		JComboBox comboBox_3 = new JComboBox();
-		comboBox_3.setBounds(308, 445, 28, 20);
-		panelCarga.add(comboBox_3);
-		
-		JComboBox comboBox_4 = new JComboBox();
-		comboBox_4.setBounds(308, 552, 28, 20);
-		panelCarga.add(comboBox_4);
-		
-		JLabel lblNewLabel_2 = new JLabel("CARGAR FOTO :");
-		lblNewLabel_2.setBounds(515, 173, 126, 40);
-		panelCarga.add(lblNewLabel_2);
-		
-		JButton btnNewButton = new JButton("Elegi foto");
-		btnNewButton.setBounds(755, 182, 89, 23);
+	}
+
+	private void crearBotones(JPanel panelCarga, String texto, int x, int y) {
+		JButton btnNewButton = new JButton(texto);
+		btnNewButton.setBounds(x, y, 89, 23);
 		panelCarga.add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("GUARDAR ");
-		btnNewButton_1.setBounds(564, 617, 89, 23);
-		panelCarga.add(btnNewButton_1);
-		
-		JButton btnNewButton_1_1 = new JButton("Volver al menu principal");
-		btnNewButton_1_1.setBounds(720, 617, 145, 23);
-		panelCarga.add(btnNewButton_1_1);
-		
-		
+	}
+
+	private void crearJLabel(JPanel panelCarga, String texto, int x , int y) {
+		JLabel lblNewLabel_2 = new JLabel(texto);
+		lblNewLabel_2.setBounds(x,y ,126, 40);
+		panelCarga.add(lblNewLabel_2);
+	}
+
+	private void crearComboBox(JPanel panelCarga, int x, int y) {
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(x,y, 114, 20);
+		comboBox.setModel(new DefaultComboBoxModel (new String [] { "Seleccione indice" , "1", "2", "3", "4", "5"}));
+		panelCarga.add(comboBox);
 	}
 	
 	protected void makeFrameFullSize(JFrame aFrame) {
