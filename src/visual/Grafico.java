@@ -22,7 +22,6 @@ public class Grafico {
     }
     
     public static void unirNodos (int x1, int x2, int y1, int y2, Graphics g) {
-    
     	agregarCirculo(x1,y1,g);
     	agregarCirculo(x2,y2,g);
     	agregarLinea(x1, x2, y1, y2, g);

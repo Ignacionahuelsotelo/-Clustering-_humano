@@ -68,4 +68,8 @@ public class VentanaGrafo extends ModeloVentana {
 	    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	    aFrame.setSize(screenSize.width, screenSize.height);
 	}
+	
+	public JFrame getFrame() {
+		return this;
+	}
 }

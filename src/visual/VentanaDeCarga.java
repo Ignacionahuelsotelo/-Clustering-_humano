@@ -48,7 +48,8 @@ public class VentanaDeCarga {
 	
 		makeFrameFullSize (frame);
 		
-		
+		frame.setName("Vernana de Carga");
+		frame.setTitle("Vernana de Carga");
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frame.getContentPane().setLayout(null);
 		
@@ -66,7 +67,7 @@ public class VentanaDeCarga {
 		crearJLabel(panelCarga, "ARTE", 28, 198 );
 		crearJLabel(panelCarga, "MUSICA", 28, 269 );
 		crearJLabel(panelCarga, "DEPORTE", 28, 343 );
-		crearJLabel(panelCarga, "ESPECTÁCULO", 28, 435 );
+		crearJLabel(panelCarga, "ESPECTï¿½CULO", 28, 435 );
 		crearJLabel(panelCarga, "CIENCIA",28, 542 );
 	
 		
@@ -78,7 +79,7 @@ public class VentanaDeCarga {
 		crearComboBox(panelCarga,230, 552);
 		
 		
-//		//Para obtener la opción seleccionada
+//		//Para obtener la opciï¿½n seleccionada
 //		int indice = comboBox.getSelectedIndex();
 //		System.out.println("El indice seleccionado es" + indice);
 		
@@ -87,7 +88,7 @@ public class VentanaDeCarga {
 		
 		crearBotones(panelCarga, "Elegir foto" , 755, 182);
 		crearBotones(panelCarga, "GUARDAR" , 564, 617);
-		crearBotones(panelCarga, "Volver al menú principal" , 720, 617);
+		crearBotones(panelCarga, "Volver al menu principal" , 720, 617);
 		
 	}
 
@@ -113,5 +114,9 @@ public class VentanaDeCarga {
 	protected void makeFrameFullSize(JFrame aFrame) {
 	    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	    aFrame.setSize(screenSize.width, screenSize.height);
+	}
+	
+	public JFrame getFrame() {
+		return frame;
 	}
 }
