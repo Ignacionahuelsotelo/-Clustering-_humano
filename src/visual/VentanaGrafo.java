@@ -1,15 +1,19 @@
 package visual;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Graphics;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
-public class VentanaGrafo {
+public class VentanaGrafo extends ModeloVentana {
 
-	private JFrame frame;
+	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
@@ -18,8 +22,8 @@ public class VentanaGrafo {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaGrafo window = new VentanaGrafo();
-					window.frame.setVisible(true);
+					VentanaGrafo frame = new VentanaGrafo();
+					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -28,49 +32,40 @@ public class VentanaGrafo {
 	}
 
 	/**
-	 * Create the application.
+	 * Create the frame.
 	 */
 	public VentanaGrafo() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	
+	public void initialize() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		setTitle("VentanaGrafo");
+		setExtendedState(JFrame.MAXIMIZED_BOTH);
+		getContentPane().setLayout(null);
+		makeFrameFullSize(this);
 		
-		makeFrameFullSize (frame);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+	}
+	
+	
+	@Override
+	public void paint(Graphics g) {
+		super.paint(g);
+	    Grafico.agregarCirculo(150, 50, g);
 		
-		
-		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		frame.getContentPane().setLayout(null);
-		
-		JPanel panelGrafo = new JPanel();
-		panelGrafo.setBounds(0, 0, 1285, 750);
-		panelGrafo.setBorder(null);
-		panelGrafo.setLayout(null);
-		
-		
-		frame.getContentPane().add(panelGrafo);
-
-		Grafico grafico = new Grafico();
-//		grafico.paint(g);
-		grafico.agregarGrafico(frame);
-//        frame.setSize(300, 300);
-//        frame.setVisible(true);
-//      //  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.setResizable(false);    
-		
-		frame.setVisible(true);
-
+	    
+        Grafico.agregarLinea(10, 10, 200, 300, g);
+     
 	}
 	
 	protected void makeFrameFullSize(JFrame aFrame) {
 	    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	    aFrame.setSize(screenSize.width, screenSize.height);
 	}
-
 }
