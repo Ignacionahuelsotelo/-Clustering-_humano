@@ -64,22 +64,23 @@ public class Main {
 		panelGrafo = new JPanel();
 		
 		frame.getContentPane().add(panelInicial);
+		frame.getContentPane().add(panelGrafo);	
 		frame.getContentPane().add(panelCarga);
-		frame.getContentPane().add(panelGrafo);
+		
+		CambiadorDeVentanas cVent = new CambiadorDeVentanas(this);
+		
+		
+		ventanaInicial = new VentanaInicial(panelInicial,cVent);
+		
+		ventanaDeCarga = new VentanaDeCarga(panelCarga,cVent);
+		
+		ventanaGrafo = new VentanaGrafo(panelGrafo,cVent);
+
+		
+		
+		cVent.cambiarAInicial();
 
 
-		
-		ventanaInicial = new VentanaInicial(panelInicial);
-		
-		ventanaDeCarga = new VentanaDeCarga(panelInicial);
-		
-		ventanaGrafo = new VentanaGrafo(panelInicial);
-		
-		
-		CambiadorDeVentanas cVent = new CambiadorDeVentanas(panelInicial, panelGrafo, panelCarga);
-		
-		CambiadorDeVentanas.cambiarACarga();
-		
 	}
 	
 	public void cambiarFrame(JFrame newFrame) {
@@ -87,5 +88,27 @@ public class Main {
 		frame.getContentPane().repaint();
 	}
 	
+	
+	public  void ocultarPaneles() {
+		panelInicial.setVisible(false);
+		panelCarga.setVisible(false);
+		panelGrafo.setVisible(false);
+	}
+	
+	
+	public  void cambiarAInicial() {
+		ocultarPaneles();
+		panelInicial.setVisible(true);
+	}
+	
+	public  void cambiarACarga() {
+		ocultarPaneles();
+		panelCarga.setVisible(true);
+	}
+	
+	public  void cambiarAGrafo() {
+		ocultarPaneles();
+		panelGrafo.setVisible(true);
+	}
 	
 }

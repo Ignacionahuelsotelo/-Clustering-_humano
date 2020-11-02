@@ -29,6 +29,7 @@ public class VentanaInicial  {
 
 	
 	private JPanel panelInicial;
+	private CambiadorDeVentanas cVent;
 
 	/**
 	 * Launch the application.
@@ -38,8 +39,9 @@ public class VentanaInicial  {
 	/**
 	 * Create the application.
 	 */
-	public VentanaInicial(JPanel p) {
+	public VentanaInicial(JPanel p, CambiadorDeVentanas cVent) {
 		this.panelInicial=p;
+		this.cVent=cVent;
 		initialize();
 	}
 
@@ -62,7 +64,7 @@ public class VentanaInicial  {
 		JButton btnNewButton = new JButton("Cargar Datos");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				CambiadorDeVentanas.cambiarACarga();;
+				cVent.cambiarACarga();
 				
 			}
 		});
@@ -74,17 +76,17 @@ public class VentanaInicial  {
 		JButton btnClustering = new JButton("MATCH");
 		btnClustering.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				CambiadorDeVentanas.cambiarAGrafo();
+				cVent.cambiarAGrafo();
 			}
 		});
 		
 		btnClustering.setBounds(688, 366, 138, 67);
 		panelInicial.add(btnClustering);
 		
-		JPanel panelPersonasCargadas = new JPanel();
-		panelPersonasCargadas.setBounds(43, 148, 328, 521);
-		panelInicial.add(panelPersonasCargadas);
-		
+			JPanel panelPersonasCargadas = new JPanel();
+			panelPersonasCargadas.setBounds(43, 148, 328, 521);
+			panelInicial.add(panelPersonasCargadas);
+			
 		
 		
 	

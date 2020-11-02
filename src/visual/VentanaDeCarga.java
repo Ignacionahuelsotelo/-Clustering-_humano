@@ -6,6 +6,9 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import controlador.CambiadorDeVentanas;
+
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
@@ -14,6 +17,8 @@ import javax.swing.JButton;
 public class VentanaDeCarga {
 
 	private JPanel panelCarga;
+	private CambiadorDeVentanas cVent;
+
 
 	/**
 	 * Launch the application.
@@ -34,8 +39,9 @@ public class VentanaDeCarga {
 	/**
 	 * Create the application.
 	 */
-	public VentanaDeCarga(JPanel p) {
+	public VentanaDeCarga(JPanel p,CambiadorDeVentanas cVent) {
 		this.panelCarga=p;
+		this.cVent=cVent;
 		initialize();
 	}
 
@@ -78,7 +84,8 @@ public class VentanaDeCarga {
 		crearBotones(panelCarga, "Elegir foto" , 755, 182);
 		crearBotones(panelCarga, "GUARDAR" , 564, 617);
 		crearBotones(panelCarga, "Volver al menu principal" , 720, 617);
-		
+	
+		panelCarga.setVisible(false);
 	}
 
 	private void crearBotones(JPanel panelCarga, String texto, int x, int y) {

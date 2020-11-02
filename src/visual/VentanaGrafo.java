@@ -11,9 +11,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import controlador.CambiadorDeVentanas;
+
 public class VentanaGrafo extends ModeloVentana {
 
 	private JPanel panelGrafo;
+	private CambiadorDeVentanas cVent;
 
 	/**
 	 * Launch the application.
@@ -34,14 +37,14 @@ public class VentanaGrafo extends ModeloVentana {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaGrafo(JPanel p) {
+	public VentanaGrafo(JPanel p, CambiadorDeVentanas cVent) {
 		this.panelGrafo=p;
+		this.cVent=cVent;
 		initialize();
 	}
 
 	
 	public void initialize() {		
-		panelGrafo = new JPanel();
 		panelGrafo.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(panelGrafo);
 		panelGrafo.setLayout(null);
