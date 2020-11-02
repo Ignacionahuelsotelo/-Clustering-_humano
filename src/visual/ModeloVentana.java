@@ -20,7 +20,7 @@ import javax.swing.border.LineBorder;
 
 
 
-public class ModeloVentana extends JFrame {
+public class ModeloVentana{
 	
 	protected JLabel createJLabel(JPanel panel, String texto, Color color, Font fuente, int posX, int posY, int ancho,
 			int alto) {

@@ -18,7 +18,7 @@ public class Main {
 	private VentanaDeCarga ventanaDeCarga;
 	private JPanel panelInicial;
 	private JPanel panelCarga;
-	private JPanel panelGrafo;
+	private PanelGrafo panelGrafo;
 
 	/**
 	 * Launch the application.
@@ -53,7 +53,7 @@ public class Main {
 		//frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		frame.setTitle("Main");
+		frame.setTitle("Clustering");
 		
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 	 
@@ -61,7 +61,7 @@ public class Main {
 		
 		panelInicial = new JPanel();
 		panelCarga = new JPanel();
-		panelGrafo = new JPanel();
+		panelGrafo = new PanelGrafo();
 		
 		frame.getContentPane().add(panelInicial);
 		frame.getContentPane().add(panelGrafo);	
@@ -81,11 +81,6 @@ public class Main {
 		cVent.cambiarAInicial();
 
 
-	}
-	
-	public void cambiarFrame(JFrame newFrame) {
-		this.frame = newFrame;
-		frame.getContentPane().repaint();
 	}
 	
 	

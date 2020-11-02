@@ -3,6 +3,8 @@ package visual;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -83,15 +85,22 @@ public class VentanaDeCarga {
 		
 		crearBotones(panelCarga, "Elegir foto" , 755, 182);
 		crearBotones(panelCarga, "GUARDAR" , 564, 617);
-		crearBotones(panelCarga, "Volver al menu principal" , 720, 617);
+		JButton volver = crearBotones(panelCarga, "Volver al menu principal" , 720, 617);
+		
+		volver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				cVent.cambiarAInicial();
+			}
+		});
 	
 		panelCarga.setVisible(false);
 	}
 
-	private void crearBotones(JPanel panelCarga, String texto, int x, int y) {
+	private JButton crearBotones(JPanel panelCarga, String texto, int x, int y) {
 		JButton btnNewButton = new JButton(texto);
 		btnNewButton.setBounds(x, y, 89, 23);
 		panelCarga.add(btnNewButton);
+		return btnNewButton;
 	}
 
 	private void crearJLabel(JPanel panelCarga, String texto, int x , int y) {
@@ -112,7 +121,4 @@ public class VentanaDeCarga {
 	    aFrame.setSize(screenSize.width, screenSize.height);
 	}
 	
-	public JPanel getFrame() {
-		return this.panelCarga;
-	}
 }

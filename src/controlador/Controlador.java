@@ -1,4 +1,4 @@
-package visual;
+package controlador;
 import java.util.ArrayList;
 import java.util.Set;
 
