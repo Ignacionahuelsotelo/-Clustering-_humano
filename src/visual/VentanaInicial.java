@@ -27,7 +27,8 @@ import javax.swing.JList;
 
 public class VentanaInicial  {
 
-	private JFrame frame;
+	
+	private JPanel panelInicial;
 
 	/**
 	 * Launch the application.
@@ -37,69 +38,56 @@ public class VentanaInicial  {
 	/**
 	 * Create the application.
 	 */
-	public VentanaInicial() {
-		//this.frame=frame;
+	public VentanaInicial(JPanel p) {
+		this.panelInicial=p;
 		initialize();
 	}
+
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-
 		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setTitle("Ventana Inicial");
-		makeFrameFullSize (frame);
-		
-		
-		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		frame.getContentPane().setLayout(null);
-		
-		JPanel panelTitulo = new JPanel();
-		panelTitulo.setBounds(0, 0, 1285, 750);
-		panelTitulo.setBorder(null);
-		panelTitulo.setLayout(null);
+		panelInicial.setBounds(0, 0, 1285, 750);
+		panelInicial.setBorder(null);
+		panelInicial.setLayout(null);
 		
 		Font fuente = new Font("Showcard Gothic", java.awt.Font.PLAIN, 38); // para cambiar el tama�o de la letra es mejor hacerlo en la fuente !!
-		createJLabel(panelTitulo, "Clustering Humano", Color.RED, fuente, 95, 81, 89, 27);
+		createJLabel(panelInicial, "Clustering Humano", Color.RED, fuente, 95, 81, 89, 27);
 		 
 		
 
-		frame.getContentPane().add(panelTitulo);
 		
 		JButton btnNewButton = new JButton("Cargar Datos");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				CambiadorDeVentanas.cambiarAVentanaDeCarga();
+				CambiadorDeVentanas.cambiarACarga();;
 				
 			}
 		});
 		
 		
 		btnNewButton.setBounds(438, 366, 138, 67);
-		panelTitulo.add(btnNewButton);
+		panelInicial.add(btnNewButton);
 		
 		JButton btnClustering = new JButton("MATCH");
 		btnClustering.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				CambiadorDeVentanas.cambiarAVentanaGrafo();;
+				CambiadorDeVentanas.cambiarAGrafo();
 			}
 		});
 		
 		btnClustering.setBounds(688, 366, 138, 67);
-		panelTitulo.add(btnClustering);
+		panelInicial.add(btnClustering);
 		
 		JPanel panelPersonasCargadas = new JPanel();
 		panelPersonasCargadas.setBounds(43, 148, 328, 521);
-		panelTitulo.add(panelPersonasCargadas);
+		panelInicial.add(panelPersonasCargadas);
 		
 		
 		
 	
-		frame.setVisible(true);
 		
 		
 	}
@@ -120,7 +108,7 @@ public class VentanaInicial  {
 		return titulo;
 	}
 	
-	public JFrame getFrame() {
-		return frame;
+	public JPanel getPanel() {
+		return this.panelInicial;
 	}
 }

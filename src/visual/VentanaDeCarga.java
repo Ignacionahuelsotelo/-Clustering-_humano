@@ -13,52 +13,41 @@ import javax.swing.JButton;
 
 public class VentanaDeCarga {
 
-	private JFrame frame;
+	private JPanel panelCarga;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaDeCarga window = new VentanaDeCarga();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					VentanaDeCarga window = new VentanaDeCarga();
+//					window.frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the application.
 	 */
-	public VentanaDeCarga() {
+	public VentanaDeCarga(JPanel p) {
+		this.panelCarga=p;
 		initialize();
 	}
+
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
-		makeFrameFullSize (frame);
-		
-		frame.setName("Vernana de Carga");
-		frame.setTitle("Vernana de Carga");
-		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		frame.getContentPane().setLayout(null);
-		
-		JPanel panelCarga = new JPanel();
 		panelCarga.setBounds(0, 0, 1285, 750);
 		panelCarga.setBorder(null);
 		panelCarga.setLayout(null);
-		
-		frame.getContentPane().add(panelCarga);
 		
 		
 		//Crea los JLABEL
@@ -116,7 +105,7 @@ public class VentanaDeCarga {
 	    aFrame.setSize(screenSize.width, screenSize.height);
 	}
 	
-	public JFrame getFrame() {
-		return frame;
+	public JPanel getFrame() {
+		return this.panelCarga;
 	}
 }

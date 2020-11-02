@@ -16,6 +16,9 @@ public class Main {
 	private VentanaInicial ventanaInicial;
 	private VentanaGrafo ventanaGrafo;
 	private VentanaDeCarga ventanaDeCarga;
+	private JPanel panelInicial;
+	private JPanel panelCarga;
+	private JPanel panelGrafo;
 
 	/**
 	 * Launch the application.
@@ -56,21 +59,26 @@ public class Main {
 	 
 		frame.setVisible(true);
 		
+		panelInicial = new JPanel();
+		panelCarga = new JPanel();
+		panelGrafo = new JPanel();
 		
-		ventanaInicial = new VentanaInicial();
+		frame.getContentPane().add(panelInicial);
+		frame.getContentPane().add(panelCarga);
+		frame.getContentPane().add(panelGrafo);
+
+
 		
-		ventanaDeCarga = new VentanaDeCarga();
+		ventanaInicial = new VentanaInicial(panelInicial);
+		
+		ventanaDeCarga = new VentanaDeCarga(panelInicial);
+		
+		ventanaGrafo = new VentanaGrafo(panelInicial);
 		
 		
-		ventanaGrafo = new VentanaGrafo();
+		CambiadorDeVentanas cVent = new CambiadorDeVentanas(panelInicial, panelGrafo, panelCarga);
 		
-		
-		CambiadorDeVentanas cVent = new CambiadorDeVentanas(this, ventanaInicial, ventanaGrafo, ventanaDeCarga);
-		
-		//CambiadorDeVentanas.cambiarAVentanaInicial();
-		
-		cambiarFrame(ventanaGrafo.getFrame());
-		
+		CambiadorDeVentanas.cambiarACarga();
 		
 	}
 	
@@ -79,7 +87,5 @@ public class Main {
 		frame.getContentPane().repaint();
 	}
 	
-	public JFrame getFrame(){
-		return frame;
-	}
+	
 }

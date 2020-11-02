@@ -13,44 +13,38 @@ import javax.swing.border.EmptyBorder;
 
 public class VentanaGrafo extends ModeloVentana {
 
-	private JPanel contentPane;
+	private JPanel panelGrafo;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaGrafo frame = new VentanaGrafo();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					VentanaGrafo frame = new VentanaGrafo();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the frame.
 	 */
-	public VentanaGrafo() {
+	public VentanaGrafo(JPanel p) {
+		this.panelGrafo=p;
 		initialize();
 	}
 
 	
-	public void initialize() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		setTitle("VentanaGrafo");
-		setExtendedState(JFrame.MAXIMIZED_BOTH);
-		getContentPane().setLayout(null);
-		makeFrameFullSize(this);
-		
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+	public void initialize() {		
+		panelGrafo = new JPanel();
+		panelGrafo.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(panelGrafo);
+		panelGrafo.setLayout(null);
 	}
 	
 	
