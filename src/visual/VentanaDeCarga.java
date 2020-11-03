@@ -1,7 +1,9 @@
 package visual;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,10 +18,11 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 
-public class VentanaDeCarga {
+public class VentanaDeCarga extends ModeloVentana {
 
 	private JPanel panelCarga;
 	private CambiadorDeVentanas cVent;
+	private javax.swing.JTextField textNombre;
 
 
 	/**
@@ -56,37 +59,40 @@ public class VentanaDeCarga {
 		panelCarga.setBounds(0, 0, 1285, 750);
 		panelCarga.setBorder(null);
 		panelCarga.setLayout(null);
+		panelCarga.setBackground(new java.awt.Color(250,250,210));
 		
 		
 		//Crea los JLABEL
-		crearJLabel(panelCarga, "CARGAR DATOS", 391, 11 );
-		crearJLabel(panelCarga, "NOMBRE :", 28, 147);
-		crearJLabel(panelCarga, "ARTE", 28, 198 );
-		crearJLabel(panelCarga, "MUSICA", 28, 269 );
-		crearJLabel(panelCarga, "DEPORTE", 28, 343 );
-		crearJLabel(panelCarga, "ESPECT�CULO", 28, 435 );
-		crearJLabel(panelCarga, "CIENCIA",28, 542 );
-	
+		createJLabel(panelCarga, "DATOS E INTERESES" , new java.awt.Color(105, 105, 105) ,new Font("Showcard Gothic", java.awt.Font.PLAIN, 28),391, 11, 300,126 );
+		
+		createJLabel(panelCarga, "NOMBRE: " , new java.awt.Color(105, 105, 105) ,new Font("Sitka Banner", java.awt.Font.PLAIN, 16), 28, 147, 300,126 );
+		textNombre = createTextField(panelCarga,new Color(240, 230, 140), 230, 198, 114, 20);  
+		
+		createJLabel(panelCarga, "ARTE:" , new java.awt.Color(105, 105, 105) ,new Font("Sitka Banner", java.awt.Font.PLAIN, 16), 28, 198, 300,126 );
+		createJLabel(panelCarga, "MUSICA:" , new java.awt.Color(105, 105, 105) ,new Font("Sitka Banner", java.awt.Font.PLAIN, 16),  28, 249, 300,126 );
+		createJLabel(panelCarga, "DEPORTE:" , new java.awt.Color(105, 105, 105) ,new Font("Sitka Banner", java.awt.Font.PLAIN, 16),  28, 300, 300,126 );
+		createJLabel(panelCarga, "ESPECTACULO:" , new java.awt.Color(105, 105, 105) ,new Font("Sitka Banner", java.awt.Font.PLAIN, 16),  28, 351, 300,126 );
+		createJLabel(panelCarga, "CIENCIA:" , new java.awt.Color(105, 105, 105) ,new Font("Sitka Banner", java.awt.Font.PLAIN, 16),  28, 402, 300,126 );
+		
 		
 		//Crea los comboBox
-		crearComboBox(panelCarga,230, 208);
-		crearComboBox(panelCarga,230, 289);
-		crearComboBox(panelCarga,230, 353);
-		crearComboBox(panelCarga,230, 445);
-		crearComboBox(panelCarga,230, 552);
+		crearComboBox(panelCarga,230, 249);
+		crearComboBox(panelCarga,230, 299);
+		crearComboBox(panelCarga,230, 349);
+		crearComboBox(panelCarga,230, 399);
+		crearComboBox(panelCarga,230, 449);
 		
-		
-//		//Para obtener la opci�n seleccionada
+//		//Para obtener la opcion seleccionada
 //		int indice = comboBox.getSelectedIndex();
 //		System.out.println("El indice seleccionado es" + indice);
 		
 		
 		//Crea los botones
-		
-		crearBotones(panelCarga, "Elegir foto" , 755, 182);
-		crearBotones(panelCarga, "GUARDAR" , 564, 617);
-		JButton volver = crearBotones(panelCarga, "Volver al menu principal" , 720, 617);
-		
+		Color foreGround = new java.awt.Color(51,51,51);
+		Font buttonFont = new Font("Sitka Banner", java.awt.Font.PLAIN, 15);
+		Color background = new Color(240, 230, 140);
+		createButton(panelCarga, "Elegir foto", foreGround, buttonFont,background, 755, 182,189, 40);
+		JButton volver = createButton(panelCarga, "Volver al menu principal", foreGround, buttonFont,background, 720, 617,189, 40);
 		volver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				cVent.cambiarAInicial();
@@ -94,26 +100,6 @@ public class VentanaDeCarga {
 		});
 	
 		panelCarga.setVisible(false);
-	}
-
-	private JButton crearBotones(JPanel panelCarga, String texto, int x, int y) {
-		JButton btnNewButton = new JButton(texto);
-		btnNewButton.setBounds(x, y, 89, 23);
-		panelCarga.add(btnNewButton);
-		return btnNewButton;
-	}
-
-	private void crearJLabel(JPanel panelCarga, String texto, int x , int y) {
-		JLabel lblNewLabel_2 = new JLabel(texto);
-		lblNewLabel_2.setBounds(x,y ,126, 40);
-		panelCarga.add(lblNewLabel_2);
-	}
-
-	private void crearComboBox(JPanel panelCarga, int x, int y) {
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(x,y, 114, 20);
-		comboBox.setModel(new DefaultComboBoxModel (new String [] { "Seleccione indice" , "1", "2", "3", "4", "5"}));
-		panelCarga.add(comboBox);
 	}
 	
 	protected void makeFrameFullSize(JFrame aFrame) {

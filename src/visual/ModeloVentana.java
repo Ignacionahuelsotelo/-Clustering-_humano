@@ -8,8 +8,10 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -63,6 +65,13 @@ public class ModeloVentana{
 	protected void makeFrameFullSize(JFrame aFrame) {
 	    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	    aFrame.setSize(screenSize.width, screenSize.height);
+	}
+	
+	protected void crearComboBox(JPanel panelCarga, int x, int y) {
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(x,y, 114, 20);
+		comboBox.setModel(new DefaultComboBoxModel (new String [] { "Seleccione indice" , "1", "2", "3", "4", "5"}));
+		panelCarga.add(comboBox);
 	}
 	
 //	public JLabel crearBotonImagen(JPanel panel ,Juego juego,int posBX, int posBY, int anchoB, int altoB, int posIX, int posIY, int anchoI, int altoI) {

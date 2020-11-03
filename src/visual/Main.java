@@ -9,6 +9,7 @@ import controlador.CambiadorDeVentanas;
 
 import javax.swing.JScrollBar;
 import javax.swing.JPanel;
+import java.awt.Color;
 
 public class Main {
 
@@ -60,7 +61,9 @@ public class Main {
 		frame.setVisible(true);
 		
 		panelInicial = new JPanel();
+		panelInicial.setBackground(new Color(250, 250, 210));
 		panelCarga = new JPanel();
+		panelCarga.setBackground(new Color(51, 51, 51));
 		panelGrafo = new PanelGrafo();
 		
 		frame.getContentPane().add(panelInicial);
