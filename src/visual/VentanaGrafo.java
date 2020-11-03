@@ -7,7 +7,10 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -41,7 +44,17 @@ public class VentanaGrafo extends ModeloVentana{
 		createJLabel(panelGrafo, "Hola", Color.RED, fuente, 95, 81, 89, 27);
 		
 		panelGrafo.setVisible(false);
-		 
+		
+		Color foreGround = new java.awt.Color(51,51,51);
+		Font buttonFont = new Font("Sitka Banner", java.awt.Font.PLAIN, 15);
+		Color background = new Color(240, 230, 140);
+		JButton volverAlInicio = createButton(panelGrafo, "Volver", foreGround, buttonFont,background, 438, 366, 138, 67);
+		volverAlInicio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				cVent.cambiarAInicial();
+				
+			}
+		}); 
 	}
 //	
 //	

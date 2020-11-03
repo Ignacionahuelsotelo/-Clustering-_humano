@@ -11,6 +11,7 @@ public class PanelGrafo extends JPanel {
 
 	@Override
 	public void paint(Graphics g) {
+		super.paint(g);
 		g.setColor(Color.BLUE);
 		// x,y,tama�o alto y ancho
 		g.fillOval(150, 50, 40, 40);

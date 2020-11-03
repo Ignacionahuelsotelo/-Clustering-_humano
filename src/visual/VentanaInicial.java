@@ -75,8 +75,6 @@ public class VentanaInicial extends ModeloVentana  {
 		btnClustering.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				cVent.cambiarAGrafo();
-
-				//panelInicial.setVisible(false);
 			}
 		});
 		
