@@ -6,68 +6,64 @@ import java.util.Set;
 
 public class Clasificador {
 	public Grafo grafo;
-	ArrayList <Persona> personas;
-	
-	public Clasificador () {
-		personas = new ArrayList <Persona> ();
-		grafo = new Grafo (5);
-		
+	ArrayList<Persona> personas;
+
+	public Clasificador() {
+		personas = new ArrayList<Persona>();
+		grafo = new Grafo();
+
 	}
-	
-	public void agregarPersonas (Persona persona) {
+
+	public void agregarPersonas(Persona persona) {
+		if (persona == null)
+			throw new NullPointerException("No se puede agregar una persona null");
+
 		if (!personas.contains(persona)) {
-		personas.add(persona);
-		grafo.agregarVertice(persona);	
+			personas.add(persona);
+			grafo.agregarVertice(persona);
 		}
 	}
 
 	public void completarGrafo() {
-		grafo = new Grafo(personas.size());
+		grafo = new Grafo();
 		for (int i = 0; i < personas.size(); i++) {
 			grafo.agregarVertice(personas.get(i));
 		}
 		grafo.completarGrafo();
 	}
 
-	//Carga los atributos de las personas y las agrega a personas
-	public void cargarPersona (String nombre, int musica, int deporte, int espectaculo, int ciencia, int arte) {
-		Persona persona = new Persona (nombre, musica, deporte, espectaculo, ciencia, arte);
-		agregarPersonas(persona);	
+	// Carga los atributos de las personas y las agrega a personas
+	public void cargarPersona(String nombre, int musica, int deporte, int espectaculo, int ciencia, int arte) {
+		Persona persona = new Persona(nombre, musica, deporte, espectaculo, ciencia, arte);
+		agregarPersonas(persona);
 	}
-	
-	public Grafo dividirGrafo () {
+
+	public Grafo dividirGrafo() {
 		completarGrafo();
 		Grafo nuevo = AGM.generadoMin(grafo);
 		nuevo.eliminarNodoMasPesado();
 		return nuevo;
 	}
-	
-	public ArrayList<Set <Persona>> agruparPersonas () {
+
+	public ArrayList<Set<Persona>> agruparPersonas() {
 		Grafo nuevo = dividirGrafo();
-		ArrayList <Set <Persona>> grupos = new ArrayList<Set <Persona>>();
-		Set <Persona> grupo1 = BFS.alcanzables(nuevo, 0);
-		Set <Persona> grupo2 = new HashSet<Persona> ();
-		for (int i = 0 ; i< personas.size(); i++) {
+		ArrayList<Set<Persona>> grupos = new ArrayList<Set<Persona>>();
+		Set<Persona> grupo1 = BFS.alcanzables(nuevo, 0);
+		Set<Persona> grupo2 = new HashSet<Persona>();
+		for (int i = 0; i < personas.size(); i++) {
 			if (!grupo1.contains(personas.get(i))) {
 				grupo2.add(personas.get(i));
 			}
 		}
 		grupos.add(grupo1);
 		grupos.add(grupo2);
-		System.out.println("Grupo1 =" + grupo1.toString());
-		System.out.println("Grupo2 =" + grupo2.toString());
-		return grupos;
 		
+		return grupos;
+
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	public Grafo getGrafo() {
+		return this.grafo;
+	}
+
 }
-
-

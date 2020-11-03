@@ -1,22 +1,26 @@
 package logica;
 
+import java.util.ArrayList;
+import java.util.Set;
+
 public class ClusteringConsola {
 
 	public static void main(String[] args) {
-		Persona p1 = new Persona("Melina", 0, 0, 0, 0, 0);
-		Persona p2 = new Persona("Rororo", 0, 0, 0, 0, 0);
-		Persona p3 = new Persona("Perrito", 2, 2, 2, 2, 2);
-		Persona p4 = new Persona("Perro", 3,3,3,3,3);
-		Persona p5 = new Persona("Perr",3,3,3,3,3);
-	
 		Clasificador cl = new Clasificador ();
-		cl.agregarPersonas(p1);
-		cl.agregarPersonas(p2);
-		cl.agregarPersonas(p3);
-		cl.agregarPersonas(p4);
-		cl.agregarPersonas(p5);
-		cl.grafo.completarGrafo();
-		cl.agruparPersonas();
+		
+		cl.cargarPersona("Melina", 0, 0, 0, 0, 0);
+		cl.cargarPersona("Rororo", 0, 0, 0, 0, 0);
+		cl.cargarPersona("Perrito", 2, 2, 2, 2, 2);
+		cl.cargarPersona("Perro", 3,3,3,3,3);
+		cl.cargarPersona("Perr",3,3,3,3,3);
+	
+		
+		ArrayList<Set<Persona>> grupos = cl.agruparPersonas();
+	
+		Set<Persona> grupo1= grupos.get(0);
+		Set<Persona> grupo2= grupos.get(1);
+		System.out.println("Grupo1 =" + grupo1.toString());
+		System.out.println("Grupo2 =" + grupo2.toString());
 
 	}
 

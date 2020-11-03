@@ -16,7 +16,7 @@ public class AGMTest {
 	@Before
 	public void setUp() throws Exception {
 		
-		grafo = new Grafo(4);
+		grafo = new Grafo();
 		p0 = new Persona("A", 5, 5, 5, 5, 5);
 		p1 = new Persona("B", 4, 4, 4, 4, 4);
 		p2 = new Persona("C", 0, 0, 0, 0, 0);

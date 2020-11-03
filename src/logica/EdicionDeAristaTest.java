@@ -5,9 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-
 public class EdicionDeAristaTest {
-	Grafo grafo = new Grafo(5);
+	Grafo grafo;
 	Persona p1;
 	Persona p2;
 	Persona p3;
@@ -16,12 +15,12 @@ public class EdicionDeAristaTest {
 
 	@Before
 	public void setUp() throws Exception {
-		grafo = new Grafo(5);
+		grafo = new Grafo();
 		p1 = new Persona("A", 1, 1, 1, 1, 1);
 		p2 = new Persona("B", 1, 1, 1, 1, 1);
 		p3 = new Persona("C", 0, 0, 0, 0, 0);
-		p4  = new Persona("D", 1, 1, 1, 1, 1);
-		p5  = new Persona("E", 5, 5, 5, 5, 5);
+		p4 = new Persona("D", 1, 1, 1, 1, 1);
+		p5 = new Persona("E", 5, 5, 5, 5, 5);
 		grafo.agregarVertice(p1);
 		grafo.agregarVertice(p2);
 		grafo.agregarVertice(p3);
@@ -100,14 +99,14 @@ public class EdicionDeAristaTest {
 		grafo.agregarArista(2, 4);
 		assertTrue(grafo.existeArista(2, 4));
 	}
-	
+
 	@Test
 	public void eliminarAristaMasPesada() {
 		grafo.completarGrafo();
-		
+
 		grafo.eliminarNodoMasPesado();
-		assertFalse(grafo.existeArista(4,2));
-		assertTrue (grafo.existeArista(1, 2));
+		assertFalse(grafo.existeArista(4, 2));
+		assertTrue(grafo.existeArista(1, 2));
 	}
 
 }

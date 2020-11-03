@@ -43,7 +43,7 @@ public class AGM {
 
 		int cantAristas = 0;
 		int n = g.tamanio();
-		Grafo min = new Grafo(n);
+		Grafo min = new Grafo();
 		for (Persona p : g.vertices()) {
 			min.agregarVertice(p);
 		}

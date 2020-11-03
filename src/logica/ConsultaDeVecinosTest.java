@@ -17,7 +17,7 @@ public class ConsultaDeVecinosTest {
 
 	@Before
 	public void setUp() throws Exception {
-		grafo = new Grafo(5);
+		grafo = new Grafo();
 		p1 = new Persona("A", 1, 1, 1, 1, 1);
 		p2 = new Persona("B", 1, 1, 1, 1, 1);
 		p3 = new Persona("C", 1, 1, 1, 1, 1);
@@ -69,5 +69,22 @@ public class ConsultaDeVecinosTest {
 		assertTrue(set.contains(p3));
 	}
 
-
+	@Test
+	public void noCompletoTest() {
+		assertFalse(grafo.esCompleto());
+	}
+	
+	@Test
+	public void completoTest() {
+		grafo.completarGrafo();
+		assertTrue(grafo.esCompleto());
+	}
+	
+	@Test
+	public void completoUnicoVertice() {
+		Grafo g = new Grafo();
+		g.agregarVertice(p1);
+		assertTrue(g.esCompleto());
+	}
+	
 }
