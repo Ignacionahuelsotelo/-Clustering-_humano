@@ -60,4 +60,12 @@ public class PersonasJSON {
 		}
 		return ret;
 	}
+	
+	public ArrayList<String> getPersonasString (){
+		ArrayList<String> ret = new ArrayList<String>();
+		for (int i = 0; i < this.personas.size(); i++) {
+			ret.add(personas.get(i).toString());
+		}
+		return ret;
+	}
 }

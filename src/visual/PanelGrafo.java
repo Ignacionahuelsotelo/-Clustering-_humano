@@ -5,19 +5,22 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
+import controlador.Controlador;
+
 public class PanelGrafo extends JPanel {
 
 //	private static final long serialVersionUID = 1L;
 
 	@Override
-	public void paint(Graphics g) {
-		super.paint(g);
-		g.setColor(Color.BLUE);
-		// x,y,tama�o alto y ancho
-		g.fillOval(150, 50, 40, 40);
-		g.setColor(Color.RED);
-		g.drawLine(10, 10, 200, 300);
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		Controlador.graficarGrupos(g);
 
 		this.setBackground(Color.ORANGE);
 	}
+	
+	
+	
+	
+	
 }

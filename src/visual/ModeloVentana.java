@@ -67,11 +67,13 @@ public class ModeloVentana{
 	    aFrame.setSize(screenSize.width, screenSize.height);
 	}
 	
-	protected void crearComboBox(JPanel panelCarga, int x, int y) {
+	protected JComboBox crearComboBox(JPanel panelCarga, int x, int y) {
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(x,y, 114, 20);
 		comboBox.setModel(new DefaultComboBoxModel (new String [] { "Seleccione indice" , "1", "2", "3", "4", "5"}));
 		panelCarga.add(comboBox);
+		return comboBox;
+		
 	}
 	
 //	public JLabel crearBotonImagen(JPanel panel ,Juego juego,int posBX, int posBY, int anchoB, int altoB, int posIX, int posIY, int anchoI, int altoI) {

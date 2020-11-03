@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
 import controlador.CambiadorDeVentanas;
+import controlador.Controlador;
 
 import javax.swing.JScrollBar;
 import javax.swing.JPanel;
@@ -89,23 +90,32 @@ public class Main {
 	
 	public  void ocultarPaneles() {
 		panelInicial.setVisible(false);
+		panelInicial.setEnabled(false);
 		panelCarga.setVisible(false);
+		panelCarga.setEnabled(false);
 		panelGrafo.setVisible(false);
+		panelGrafo.setEnabled(false);
 	}
 	
 	
 	public  void cambiarAInicial() {
 		ocultarPaneles();
+		panelInicial.setEnabled(true);
 		panelInicial.setVisible(true);
+		
+		Controlador.agregarLista(ventanaInicial.getPanelPersonas());
+		
 	}
 	
 	public  void cambiarACarga() {
 		ocultarPaneles();
+		panelCarga.setEnabled(true);
 		panelCarga.setVisible(true);
 	}
 	
 	public  void cambiarAGrafo() {
 		ocultarPaneles();
+		panelGrafo.setEnabled(true);
 		panelGrafo.setVisible(true);
 	}
 	

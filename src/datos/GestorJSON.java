@@ -29,7 +29,7 @@ public class GestorJSON {
 	
 	public static void guardarPersonas () {
 		String jsonPretty = lasPersonas.generarJSONPretty();
-		lasPersonas.guardarJSON(jsonPretty, "PersonasPretty.JSON");
+		lasPersonas.guardarJSON(jsonPretty, "usuarios.JSON");
 	}
 
 }

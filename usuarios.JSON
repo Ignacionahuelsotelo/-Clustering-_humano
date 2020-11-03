@@ -1,0 +1,20 @@
+{
+  "personas": [
+    {
+      "nombre": "sfs",
+      "musica": 3,
+      "deporte": 2,
+      "espectaculo": 3,
+      "ciencia": 2,
+      "arte": 5
+    },
+    {
+      "nombre": "sfs",
+      "musica": 3,
+      "deporte": 2,
+      "espectaculo": 3,
+      "ciencia": 2,
+      "arte": 2
+    }
+  ]
+}

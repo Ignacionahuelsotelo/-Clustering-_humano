@@ -19,9 +19,12 @@ import java.awt.Component;
 import javax.swing.SwingConstants;
 
 import controlador.CambiadorDeVentanas;
+import controlador.Controlador;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JList;
 
@@ -30,6 +33,7 @@ public class VentanaInicial extends ModeloVentana  {
 	
 	private JPanel panelInicial;
 	private CambiadorDeVentanas cVent;
+	private JPanel panelPersonasCargadas;
 
 	/**
 	 * Launch the application.
@@ -56,6 +60,8 @@ public class VentanaInicial extends ModeloVentana  {
 		panelInicial.setLayout(null);
 		panelInicial.setBackground(new java.awt.Color(250,250,210));
 		
+		
+		
 		Font fuente = new Font("Showcard Gothic", java.awt.Font.PLAIN, 38); // para cambiar el tama�o de la letra es mejor hacerlo en la fuente !!
 		JLabel titulo = createJLabel(panelInicial, "Clustering Humano", new java.awt.Color(105, 105, 105), fuente, 95, 81, 89, 27);
 		titulo.setBounds(454,30,401,94);
@@ -78,12 +84,19 @@ public class VentanaInicial extends ModeloVentana  {
 			}
 		});
 		
-			JPanel panelPersonasCargadas = new JPanel();
+			panelPersonasCargadas = new JPanel();
 			panelPersonasCargadas.setBounds(43, 148, 328, 521);
 			panelInicial.add(panelPersonasCargadas);
+			panelPersonasCargadas.setLayout(null);
+			
+			
+			
+			Controlador.agregarLista(panelPersonasCargadas);
+		
+//			panelPersonasCargadas.add(crearLista());
 			
 		
-		
+//			agregarLista(panelPersonasCargadas);
 	
 		
 		
@@ -98,4 +111,34 @@ public class VentanaInicial extends ModeloVentana  {
 	public JPanel getPanel() {
 		return this.panelInicial;
 	}
+	
+	public JPanel getPanelPersonas () {
+		return panelPersonasCargadas;
+	}
+//	public DefaultListModel<String> recorrerDatosPersonas (ArrayList<String> datos) {
+//		DefaultListModel<String> listModel = new DefaultListModel<>();
+//		for (int i = 0 ; i < datos.size(); i++) {
+//			listModel.addElement(datos.get(i));
+//		}
+//		return listModel;
+//		
+//	}
+//	
+//	public JList crearLista () {
+//		Font fuenteLista = new Font("Showcard Gothic", java.awt.Font.PLAIN, 20);
+//		JList list = new JList<>(recorrerDatosPersonas(Controlador.getDatosPersonas()));
+//		list.setBounds(0, 0, 328, 521);
+//		
+//		list.setFont(fuenteLista);
+//		
+//		return list;
+//	}
+//	
+//	public void agregarLista (JPanel panel) {
+//		JList list = crearLista();
+//		panel.removeAll();
+//		panel.add(list);
+//		
+//		
+//	}
 }
