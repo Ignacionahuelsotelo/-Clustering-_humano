@@ -3,7 +3,7 @@ package visual;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Grafico {
+public class Grafico  {
     /**
 	 * 
 	 */
@@ -13,6 +13,8 @@ public class Grafico {
     public static void agregarCirculo (int x1, int y1,Graphics g) {
     	g.setColor(Color.BLUE);
     	g.fillOval(x1,y1, 40, 40);  
+    	
+    	
     }
     
     public static void agregarLinea (int x1, int y1, int x2, int y2,Graphics g) {
@@ -27,6 +29,8 @@ public class Grafico {
     	agregarLinea(x1, x2, y1, y2, g);
     	
     }
+    
+    
     
     
 }

@@ -41,14 +41,15 @@ public class VentanaGrafo extends ModeloVentana{
 		
 		
 		Font fuente = new Font("Showcard Gothic", java.awt.Font.PLAIN, 38); // para cambiar el tama�o de la letra es mejor hacerlo en la fuente !!
-		createJLabel(panelGrafo, "Hola", Color.RED, fuente, 95, 81, 89, 27);
+		createJLabel(panelGrafo, "Grupos Formados : ", Color.RED, fuente, 454,30,401,94);
+		
 		
 		panelGrafo.setVisible(false);
 		
 		Color foreGround = new java.awt.Color(51,51,51);
 		Font buttonFont = new Font("Sitka Banner", java.awt.Font.PLAIN, 15);
 		Color background = new Color(240, 230, 140);
-		JButton volverAlInicio = createButton(panelGrafo, "Volver", foreGround, buttonFont,background, 438, 366, 138, 67);
+		JButton volverAlInicio = createButton(panelGrafo, "Volver", foreGround, buttonFont,background, 600, 600, 138, 67);
 		volverAlInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				cVent.cambiarAInicial();

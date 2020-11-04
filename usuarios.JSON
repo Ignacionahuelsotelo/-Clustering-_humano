@@ -1,20 +1,20 @@
 {
   "personas": [
     {
-      "nombre": "fdfsdfs",
-      "musica": 3,
-      "deporte": 2,
-      "espectaculo": 3,
-      "ciencia": 2,
-      "arte": 1
+      "nombre": "nacho",
+      "musica": 2,
+      "deporte": 1,
+      "espectaculo": 2,
+      "ciencia": 3,
+      "arte": 2
     },
     {
-      "nombre": "afasfafa",
-      "musica": 3,
+      "nombre": "fer",
+      "musica": 2,
       "deporte": 1,
-      "espectaculo": 3,
-      "ciencia": 2,
-      "arte": 4
+      "espectaculo": 2,
+      "ciencia": 3,
+      "arte": 2
     }
   ]
 }
