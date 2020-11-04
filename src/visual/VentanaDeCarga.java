@@ -113,6 +113,9 @@ public class VentanaDeCarga extends ModeloVentana {
 			
 				guardarDatos(combos);
 				cVent.cambiarAInicial();
+				borrarNombres();
+				borrarComboBox();
+				
 				
 			}
 		});
@@ -143,5 +146,19 @@ public class VentanaDeCarga extends ModeloVentana {
 		Controlador.guardarPersona();
 		
 	}
+	
+	public void borrarNombres() {
+		textNombre.setText("");
+		
+	}
+	
+	public void borrarComboBox () {
+		for (JComboBox c : combos) {
+			
+			c.setSelectedIndex(0);
+
+		}
+		}
+	
 
 }
