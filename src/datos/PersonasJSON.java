@@ -68,4 +68,7 @@ public class PersonasJSON {
 		}
 		return ret;
 	}
+	public ArrayList<Persona> getPersonas () {
+		return personas;
+	}
 }

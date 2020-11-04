@@ -39,6 +39,8 @@ public class Clasificador {
 	}
 
 	public Grafo dividirGrafo() {
+		if(grafo.tamanio()<2)
+			return grafo;
 		completarGrafo();
 		Grafo nuevo = AGM.generadoMin(grafo);
 		nuevo.eliminarNodoMasPesado();

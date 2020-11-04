@@ -7,6 +7,7 @@ import javax.swing.JScrollPane;
 
 import controlador.CambiadorDeVentanas;
 import controlador.Controlador;
+import logica.Clasificador;
 
 import javax.swing.JScrollBar;
 import javax.swing.JPanel;
@@ -84,7 +85,7 @@ public class Main {
 		
 		cVent.cambiarAInicial();
 
-
+		Controlador.cargarBase();
 	}
 	
 	

@@ -16,7 +16,7 @@ public class PanelGrafo extends JPanel {
 		super.paintComponent(g);
 		Controlador.graficarGrupos(g);
 
-		this.setBackground(Color.ORANGE);
+		//this.setBackground(Color.ORANGE);
 	}
 	
 	

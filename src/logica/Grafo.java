@@ -85,6 +85,12 @@ public class Grafo {
 	}
 
 	public void completarGrafo() {
+		if(tamanio()<2)
+			return;
+		if(tamanio()==2){
+			agregarArista(0, 1);
+			return;
+		}
 		for (int i = 0; i < tamanio() - 1; i++) {
 			for (int j = i + 1; j < tamanio(); j++) {
 				this.agregarArista(i, j);
@@ -126,7 +132,7 @@ public class Grafo {
 
 		for (int i = 0; i < n - 1; i++) {
 			for (int j = i + 1; j < n; j++) {
-				if (pesos[i][j] > maxArista && pesos[i][j] >= 0) {
+				if (pesos[i][j] >= maxArista && pesos[i][j] >= 0) {
 					maxArista = pesos[i][j];
 					iMin = i;
 					jMin = j;
@@ -134,6 +140,11 @@ public class Grafo {
 			}
 		}
 
+		if(!existeArista(iMin, jMin)) {
+			throw new IllegalStateException("Los valores encontrados no son validos iMin=" 
+						+iMin+ " jMIn="+jMin);
+		}
+		
 		eliminarArista(iMin, jMin);
 
 	}

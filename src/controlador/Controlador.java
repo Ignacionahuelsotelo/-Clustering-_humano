@@ -30,6 +30,22 @@ public class Controlador {
 		GestorJSON.agregarPersonas(new Persona(nombre, musica, deporte, espectaculo, ciencia, arte));
 		
 	}
+   
+     public static void cargarDatosEnClasificador(String nombreDelArchivo) {
+     	PersonasJSON personas = PersonasJSON.leerJSON(nombreDelArchivo);
+     	ArrayList<Persona> paraCargar = personas.getPersonas();
+     	for(Persona p : paraCargar) {
+     		clasificador.agregarPersonas(p);
+     	}
+     } 
+     
+    public static void cargarBase() {
+    	cargarDatosEnClasificador("PersonasPretty.JSON");
+    }
+    
+    public static void cargarActual() {
+    	cargarDatosEnClasificador("usuarios.JSON");
+    }
      
      public static void guardarPersona () {
     	 GestorJSON.guardarPersonas();
@@ -51,9 +67,17 @@ public class Controlador {
     	 }
      }
      
+    
+   
+     
      public static ArrayList<String> getDatosPersonas (){
-    	PersonasJSON personas = PersonasJSON.leerJSON("usuarios.JSON");
-    	return personas.getPersonasString();
+    	 ArrayList<String>  personasCargadas = PersonasJSON.leerJSON("usuarios.JSON").getPersonasString();
+    	 ArrayList<String>  personas = PersonasJSON.leerJSON("PersonasPretty.JSON").getPersonasString();
+    	 for(String p : personasCargadas) {
+    		 personas.add(p);
+    	 }
+
+    	return personas;
      }
      
  	public static DefaultListModel<String> recorrerDatosPersonas (ArrayList<String> datos) {

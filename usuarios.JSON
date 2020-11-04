@@ -1,19 +1,11 @@
 {
   "personas": [
     {
-      "nombre": "sfs",
-      "musica": 3,
+      "nombre": "Fer",
+      "musica": 2,
       "deporte": 2,
-      "espectaculo": 3,
-      "ciencia": 2,
-      "arte": 5
-    },
-    {
-      "nombre": "sfs",
-      "musica": 3,
-      "deporte": 2,
-      "espectaculo": 3,
-      "ciencia": 2,
+      "espectaculo": 1,
+      "ciencia": 3,
       "arte": 2
     }
   ]
