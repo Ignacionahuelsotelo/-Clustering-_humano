@@ -65,6 +65,8 @@ public class VentanaInicial extends ModeloVentana  {
 		Font fuente = new Font("Showcard Gothic", java.awt.Font.PLAIN, 38); // para cambiar el tama�o de la letra es mejor hacerlo en la fuente !!
 		JLabel titulo = createJLabel(panelInicial, "Clustering Humano", new java.awt.Color(105, 105, 105), fuente, 95, 81, 89, 27);
 		titulo.setBounds(454,30,401,94);
+		Font fuenteSubTitulo = new Font("Showcard Gothic", java.awt.Font.PLAIN, 25);
+		JLabel subTitulo = createJLabel(panelInicial, "Nombres de Usuarios : ",new java.awt.Color(105, 105, 105), fuenteSubTitulo, 43,-140, 328, 521);
 		
 		Color foreGround = new java.awt.Color(51,51,51);
 		Font buttonFont = new Font("Sitka Banner", java.awt.Font.PLAIN, 15);

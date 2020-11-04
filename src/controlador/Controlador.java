@@ -97,6 +97,7 @@ public class Controlador {
     		 g.setFont(fuenteNombre); 
     		g.drawString(nuevo.getNodo(i).getNombre(), numero1-10, numero2 -10);
     		
+    		
     		 
     		 }
     	 
@@ -145,6 +146,7 @@ public class Controlador {
 		JList list = crearLista();
 		panel.removeAll();
 		panel.add(list);
+		
 		
 		
 	}
