@@ -9,6 +9,7 @@ import java.util.Set;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 
 import logica.Clasificador;
 import logica.Grafo;
@@ -70,20 +71,21 @@ public class Controlador {
 			int numero1 = (int) ((Math.random() - 0.5) * 500) + centroX;
 			int numero2 = (int) ((Math.random() - 0.5) * 500) + 350;
 			p = new Punto(numero1, numero2);
-			while (!puedeAgregar(puntos, p)) {
+			while (!puedeAgregar(puntos, p) ) { // || p.getY() > 30 || p.getY() < 500  
 				numero1 = (int) ((Math.random() - 0.5) * 500) + centroX;
 				numero2 = (int) ((Math.random() - 0.5) * 500) + 350;
 				p = new Punto(numero1, numero2);
 
 			}
+			
 			puntos.add(p);
 			Grafico.agregarCirculo(numero1, numero2, g);
 			g.setFont(fuenteNombre);
 			g.setColor(Color.darkGray);
 			g.drawString(nuevo.getNodo(i).getNombre(), numero1 - 10, numero2 - 10);
-			g.drawString(clasificador.toString(), 100, 650);
-			g.drawString("Estadisticas grupo 1:" + estadisticasGrupo1(), 200, 500);
-			g.drawString("Estadisticas grupo 2:" + estadisticasGrupo2(), 200, 550);
+			g.drawString(clasificador.toString(), 700,500);
+			g.drawString("Promedio similaridad grupo 1:" + estadisticasGrupo1(), 700, 550);
+			g.drawString("Promedio similaridad grupo 2:" + estadisticasGrupo2(), 700, 600);
 			
 			
 		}
@@ -119,10 +121,13 @@ public class Controlador {
 
 	public static JList crearLista() {
 		Font fuenteLista = new Font("Showcard Gothic", java.awt.Font.PLAIN, 20);
+		Color foreGround = new java.awt.Color(250,250,210);
 		JList list = new JList<>(recorrerDatosPersonas(getDatosPersonas()));
 		list.setBounds(0, 0, 328, 521);
 
 		list.setFont(fuenteLista);
+		list.setBackground(foreGround);
+		list.setBorder(new LineBorder(new Color(240, 230, 140), 2));
 
 		return list;
 	}
@@ -144,7 +149,7 @@ public class Controlador {
 		}
 
 		for (Punto p : puntos) {
-			if (choca(punto, p)) {
+			if (choca(punto, p)   ) {
 				return false;
 			}
 		}

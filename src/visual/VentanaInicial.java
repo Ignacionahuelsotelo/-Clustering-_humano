@@ -90,6 +90,7 @@ public class VentanaInicial extends ModeloVentana  {
 		
 			panelPersonasCargadas = new JPanel();
 			panelPersonasCargadas.setBounds(43, 148, 328, 521);
+			panelPersonasCargadas.setBackground(new java.awt.Color(250,250,210));
 			panelInicial.add(panelPersonasCargadas);
 			panelPersonasCargadas.setLayout(null);
 			

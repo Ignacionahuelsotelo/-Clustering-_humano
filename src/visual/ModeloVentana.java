@@ -74,29 +74,29 @@ public class ModeloVentana{
 		return comboBox;
 	}
 	
-//	public JLabel crearBotonImagen(JPanel panel ,Juego juego,int posBX, int posBY, int anchoB, int altoB, int posIX, int posIY, int anchoI, int altoI) {
-//		JLabel foto = new JLabel("");
-//		foto.setBounds(posIX, posIY, anchoI, altoI);
-//		foto.setBorder(new LineBorder(new Color(240, 230, 140), 2));
-//		panel.add(foto);
-//		JButton boton = createButton(panel, "Elegir foto", null, null, null, posBX, posBY, anchoB, altoB);
-//		
-//		boton.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				JFileChooser fc = new JFileChooser();
-//				fc.setDialogTitle("Buscar foto");
-//
-//				if (fc.showOpenDialog(panel) == JFileChooser.APPROVE_OPTION) {
-//
-//					Image img = new ImageIcon(fc.getSelectedFile().toString()).getImage();
-//					ImageIcon icon = new ImageIcon(img.getScaledInstance(78, 124, Image.SCALE_SMOOTH));
-//					juego.setImagenJugador(icon);
-//					foto.setIcon(icon);
-//
-//				}
-//			}
-//		});
-//		return foto;
-//		
-//	}
+	public JLabel crearBotonImagen(JPanel panel ,int posBX, int posBY, int anchoB, int altoB, int posIX, int posIY, int anchoI, int altoI) {
+		JLabel foto = new JLabel("");
+		foto.setBounds(posIX, posIY, anchoI, altoI);
+		foto.setBorder(new LineBorder(new Color(240, 230, 140), 2));
+		panel.add(foto);
+		JButton boton = createButton(panel, "Elegir foto", null, null, null, posBX, posBY, anchoB, altoB);
+		
+		boton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser fc = new JFileChooser();
+				fc.setDialogTitle("Buscar foto");
+
+				if (fc.showOpenDialog(panel) == JFileChooser.APPROVE_OPTION) {
+
+					Image img = new ImageIcon(fc.getSelectedFile().toString()).getImage();
+					ImageIcon icon = new ImageIcon(img.getScaledInstance(img.getWidth(foto)-250, img.getHeight(foto)-250, Image.SCALE_DEFAULT));
+					
+					foto.setIcon(icon);
+
+				}
+			}
+		});
+		return foto;
+		
+	}
 }

@@ -75,7 +75,8 @@ public class VentanaDeCarga extends ModeloVentana {
 		Color foreGround = new java.awt.Color(51, 51, 51);
 		Font buttonFont = new Font("Sitka Banner", java.awt.Font.PLAIN, 15);
 		Color background = new Color(240, 230, 140);
-		createButton(panelCarga, "Elegir foto", foreGround, buttonFont, background, 755, 182, 189, 40);
+
+		crearBotonImagen(panelCarga,755, 182, 189, 40,755, 250, 350, 350);
 		JButton volver = createButton(panelCarga, "Volver al menu principal", foreGround, buttonFont, background, 720,
 				617, 189, 40);
 		volver.addActionListener(new ActionListener() {
