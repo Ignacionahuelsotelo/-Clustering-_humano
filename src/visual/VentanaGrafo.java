@@ -35,13 +35,14 @@ public class VentanaGrafo extends ModeloVentana{
 
 	
 	public void initialize() {		
-		panelGrafo.setBounds(0, 0, 1285, 750);
+		panelGrafo.setBounds(0, 0, 1385, 750);
 		panelGrafo.setBorder(null);
 		panelGrafo.setLayout(null);
+		panelGrafo.setBackground(new java.awt.Color(250,250,210));
 		
 		
 		Font fuente = new Font("Showcard Gothic", java.awt.Font.PLAIN, 38); // para cambiar el tama�o de la letra es mejor hacerlo en la fuente !!
-		createJLabel(panelGrafo, "Grupos Formados : ", Color.RED, fuente, 454,30,401,94);
+		createJLabel(panelGrafo, "Grupos Formados : ", new java.awt.Color(105, 105, 105), fuente, 454,30,401,94);
 		
 		
 		panelGrafo.setVisible(false);

@@ -26,21 +26,10 @@ public class VentanaDeCarga extends ModeloVentana {
 	private CambiadorDeVentanas cVent;
 	private javax.swing.JTextField textNombre;
 	private ArrayList<JComboBox> combos;
+
 	/**
 	 * Launch the application.
 	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					VentanaDeCarga window = new VentanaDeCarga();
-//					window.frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
 
 	/**
 	 * Create the application.
@@ -56,7 +45,7 @@ public class VentanaDeCarga extends ModeloVentana {
 	 */
 	private void initialize() {
 
-		panelCarga.setBounds(0, 0, 1285, 750);
+		panelCarga.setBounds(0, 0, 1385, 750);
 		panelCarga.setBorder(null);
 		panelCarga.setLayout(null);
 		panelCarga.setBackground(new java.awt.Color(250, 250, 210));
@@ -67,7 +56,7 @@ public class VentanaDeCarga extends ModeloVentana {
 
 		createJLabel(panelCarga, "NOMBRE: ", new java.awt.Color(105, 105, 105),
 				new Font("Sitka Banner", java.awt.Font.PLAIN, 16), 28, 147, 300, 126);
-		textNombre = createTextField(panelCarga, new Color(240, 230, 140), 230, 198, 114, 20);
+		textNombre = createTextField(panelCarga, new Color(240, 230, 140), 230, 198, 140, 20);
 
 		createJLabel(panelCarga, "ARTE:", new java.awt.Color(105, 105, 105),
 				new Font("Sitka Banner", java.awt.Font.PLAIN, 16), 28, 198, 300, 126);
@@ -79,20 +68,8 @@ public class VentanaDeCarga extends ModeloVentana {
 				new Font("Sitka Banner", java.awt.Font.PLAIN, 16), 28, 351, 300, 126);
 		createJLabel(panelCarga, "CIENCIA:", new java.awt.Color(105, 105, 105),
 				new Font("Sitka Banner", java.awt.Font.PLAIN, 16), 28, 402, 300, 126);
-		
-		 combos = crearComboBoxes();
-		// Crea los comboBox
-//		JComboBox arte = crearComboBox(panelCarga,230, 249);
-//		JComboBox musica =crearComboBox(panelCarga,230, 299);
-//		JComboBox deporte = crearComboBox(panelCarga,230, 349);
-//		JComboBox espectaculo =crearComboBox(panelCarga,230, 399);
-//		JComboBox ciencia = crearComboBox(panelCarga,230, 449);
 
-	
-
-//		//Para obtener la opcion seleccionada
-//		int indice = comboBox.getSelectedIndex();
-//		System.out.println("El indice seleccionado es" + indice);
+		combos = crearComboBoxes();
 
 		// Crea los botones
 		Color foreGround = new java.awt.Color(51, 51, 51);
@@ -106,17 +83,16 @@ public class VentanaDeCarga extends ModeloVentana {
 				cVent.cambiarAInicial();
 			}
 		});
-		
+
 		JButton guardar = createButton(panelCarga, "Guardar", foreGround, buttonFont, background, 200, 617, 189, 40);
 		guardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			
+
 				guardarDatos(combos);
 				cVent.cambiarAInicial();
 				borrarNombres();
 				borrarComboBox();
-				
-				
+
 			}
 		});
 
@@ -144,21 +120,20 @@ public class VentanaDeCarga extends ModeloVentana {
 				combos.get(2).getSelectedIndex(), combos.get(3).getSelectedIndex(), combos.get(4).getSelectedIndex(),
 				combos.get(0).getSelectedIndex());
 		Controlador.guardarPersona();
-		
+
 	}
-	
+
 	public void borrarNombres() {
 		textNombre.setText("");
-		
+
 	}
-	
-	public void borrarComboBox () {
+
+	public void borrarComboBox() {
 		for (JComboBox c : combos) {
-			
+
 			c.setSelectedIndex(0);
 
 		}
-		}
-	
+	}
 
 }

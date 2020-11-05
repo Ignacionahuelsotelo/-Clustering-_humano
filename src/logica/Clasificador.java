@@ -7,6 +7,8 @@ import java.util.Set;
 public class Clasificador {
 	public Grafo grafo;
 	ArrayList<Persona> personas;
+	Set<Persona> grupo1;
+	Set<Persona> grupo2;
 
 	public Clasificador() {
 		personas = new ArrayList<Persona>();
@@ -50,8 +52,8 @@ public class Clasificador {
 	public ArrayList<Set<Persona>> agruparPersonas() {
 		Grafo nuevo = dividirGrafo();
 		ArrayList<Set<Persona>> grupos = new ArrayList<Set<Persona>>();
-		Set<Persona> grupo1 = BFS.alcanzables(nuevo, 0);
-		Set<Persona> grupo2 = new HashSet<Persona>();
+		grupo1 = BFS.alcanzables(nuevo, 0);
+		grupo2 = new HashSet<Persona>();
 		for (int i = 0; i < personas.size(); i++) {
 			if (!grupo1.contains(personas.get(i))) {
 				grupo2.add(personas.get(i));
@@ -67,5 +69,20 @@ public class Clasificador {
 	public Grafo getGrafo() {
 		return this.grafo;
 	}
+	
+	public Set<Persona> getGrupo1(){
+		return grupo1;
+	}
+	
+	public Set<Persona> getGrupo2(){
+		return grupo2;
+	}
+
+	@Override
+	public String toString() {
+		return "Grupo1=" + grupo1 + ", Grupo2=" + grupo2;
+	}
+	
+	
 
 }

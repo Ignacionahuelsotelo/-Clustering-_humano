@@ -55,7 +55,7 @@ public class VentanaInicial extends ModeloVentana  {
 	 */
 	private void initialize() {
 		
-		panelInicial.setBounds(0, 0, 1285, 750);
+		panelInicial.setBounds(0, 0, 1385, 750);
 		panelInicial.setBorder(null);
 		panelInicial.setLayout(null);
 		panelInicial.setBackground(new java.awt.Color(250,250,210));
@@ -94,12 +94,7 @@ public class VentanaInicial extends ModeloVentana  {
 			
 			
 			Controlador.agregarLista(panelPersonasCargadas);
-		
-//			panelPersonasCargadas.add(crearLista());
-			
-		
-//			agregarLista(panelPersonasCargadas);
-	
+
 		
 		
 	}
@@ -117,30 +112,4 @@ public class VentanaInicial extends ModeloVentana  {
 	public JPanel getPanelPersonas () {
 		return panelPersonasCargadas;
 	}
-//	public DefaultListModel<String> recorrerDatosPersonas (ArrayList<String> datos) {
-//		DefaultListModel<String> listModel = new DefaultListModel<>();
-//		for (int i = 0 ; i < datos.size(); i++) {
-//			listModel.addElement(datos.get(i));
-//		}
-//		return listModel;
-//		
-//	}
-//	
-//	public JList crearLista () {
-//		Font fuenteLista = new Font("Showcard Gothic", java.awt.Font.PLAIN, 20);
-//		JList list = new JList<>(recorrerDatosPersonas(Controlador.getDatosPersonas()));
-//		list.setBounds(0, 0, 328, 521);
-//		
-//		list.setFont(fuenteLista);
-//		
-//		return list;
-//	}
-//	
-//	public void agregarLista (JPanel panel) {
-//		JList list = crearLista();
-//		panel.removeAll();
-//		panel.add(list);
-//		
-//		
-//	}
 }

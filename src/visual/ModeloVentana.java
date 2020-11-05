@@ -44,7 +44,6 @@ public class ModeloVentana{
 		textJugador.setBackground(color);
 		textJugador.setBounds(posX, posY, ancho, alto);
 		panel.add(textJugador);
-		// textJugador.setColumns(10);
 		return textJugador;
 	}
 
@@ -69,8 +68,8 @@ public class ModeloVentana{
 	
 	protected JComboBox crearComboBox(JPanel panelCarga, int x, int y) {
 		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(x,y, 114, 20);
-		comboBox.setModel(new DefaultComboBoxModel (new String [] { "Seleccione indice" , "1", "2", "3", "4", "5"}));
+		comboBox.setBounds(x,y, 140, 20);
+		comboBox.setModel(new DefaultComboBoxModel (new String [] { "Seleccione interes" , "1", "2", "3", "4", "5"}));
 		panelCarga.add(comboBox);
 		return comboBox;
 		

@@ -1,44 +1,29 @@
 {
   "personas": [
     {
+      "nombre": "Fer",
+      "musica": 0,
+      "deporte": 0,
+      "espectaculo": 0,
+      "ciencia": 0,
+      "arte": 0
+    },
+    {
+      "nombre": "Nacho",
+      "musica": 0,
+      "deporte": 0,
+      "espectaculo": 0,
+      "ciencia": 0,
+      "arte": 0
+    },
+    {
       "nombre": "Melina",
       "musica": 0,
       "deporte": 0,
       "espectaculo": 0,
       "ciencia": 0,
       "arte": 0
-    },
-    {
-      "nombre": "Rororo",
-      "musica": 0,
-      "deporte": 0,
-      "espectaculo": 0,
-      "ciencia": 0,
-      "arte": 0
-    },
-    {
-      "nombre": "Perrito",
-      "musica": 2,
-      "deporte": 2,
-      "espectaculo": 2,
-      "ciencia": 2,
-      "arte": 2
-    },
-    {
-      "nombre": "Perro",
-      "musica": 3,
-      "deporte": 3,
-      "espectaculo": 3,
-      "ciencia": 3,
-      "arte": 3
-    },
-    {
-      "nombre": "Perr",
-      "musica": 3,
-      "deporte": 3,
-      "espectaculo": 3,
-      "ciencia": 3,
-      "arte": 3
+  
     }
   ]
 }
