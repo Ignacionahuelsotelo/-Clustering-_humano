@@ -49,45 +49,54 @@ public class Controlador {
 		GestorJSON.guardarPersonas();
 	}
 
-	public static ArrayList<Set<Persona>>  obtenerGrupos() {
+	public static ArrayList<Set<Persona>> obtenerGrupos() {
 		ArrayList<Set<Persona>> grupos = clasificador.agruparPersonas();
 		return grupos;
 	}
 
+	public static int randomInt(int centro, int ancho) {
+		return (int) (((Math.random() - 0.5) * ancho) + centro);
+	}
+
 	public static void graficarGrupos(Graphics g) {
+		int centroX;
+		int centroY = 300;
+		int anchoX = 400;
+		int anchoY = 200;
+		
 		Grafo nuevo = clasificador.dividirGrafo();
 		Set<Persona> grupo1 = obtenerGrupos().get(0);
-		int centroX;
+		
 		Font fuenteNombre = new Font("Sitka Banner", java.awt.Font.PLAIN, 30);
+		g.setFont(fuenteNombre);
+		g.setColor(Color.darkGray);
+
+		
 		ArrayList<Punto> puntos = new ArrayList<Punto>();
 		Punto p;
 		for (int i = 0; i < nuevo.tamanio(); i++) {
 			if (grupo1.contains(nuevo.getNodo(i))) {
-				centroX = 250;
+				centroX = 350;
 
 			} else {
-				centroX = 1000;
+				centroX = 900;
 			}
-			int numero1 = (int) ((Math.random() - 0.5) * 500) + centroX;
-			int numero2 = (int) ((Math.random() - 0.5) * 500) + 350;
+			
+			int numero1 = randomInt(centroX, anchoX);
+			int numero2 = randomInt(centroY, anchoY);
 			p = new Punto(numero1, numero2);
-			while (!puedeAgregar(puntos, p) ) { // || p.getY() > 30 || p.getY() < 500  
-				numero1 = (int) ((Math.random() - 0.5) * 500) + centroX;
-				numero2 = (int) ((Math.random() - 0.5) * 500) + 350;
+		
+			while (!puedeAgregar(puntos, p)) { // || p.getY() > 30 || p.getY() < 500
+				numero1 = randomInt(centroX, anchoX);
+				numero2 = randomInt(centroY, anchoY);
 				p = new Punto(numero1, numero2);
 
 			}
-			
+
 			puntos.add(p);
 			Grafico.agregarCirculo(numero1, numero2, g);
-			g.setFont(fuenteNombre);
-			g.setColor(Color.darkGray);
 			g.drawString(nuevo.getNodo(i).getNombre(), numero1 - 10, numero2 - 10);
-			g.drawString(clasificador.toString(), 700,500);
-			g.drawString("Promedio similaridad grupo 1:" + estadisticasGrupo1(), 700, 550);
-			g.drawString("Promedio similaridad grupo 2:" + estadisticasGrupo2(), 700, 600);
-			
-			
+
 		}
 
 		for (int i = 0; i < nuevo.tamanio() - 1; i++) {
@@ -98,6 +107,11 @@ public class Controlador {
 				}
 			}
 		}
+		g.drawString("Grupo 1: "+clasificador.getGrupo1().toString(), 700, 500);
+		g.drawString("Grupo 2: "+clasificador.getGrupo2().toString(), 700, 550);
+		g.drawString("Promedio similaridad grupo 1:  " + estadisticasGrupo1(), 700, 600);
+		g.drawString("Promedio similaridad grupo 2:  " + estadisticasGrupo2(), 700, 650);
+
 	}
 
 	public static ArrayList<String> getDatosPersonas() {
@@ -121,7 +135,7 @@ public class Controlador {
 
 	public static JList crearLista() {
 		Font fuenteLista = new Font("Showcard Gothic", java.awt.Font.PLAIN, 20);
-		Color foreGround = new java.awt.Color(250,250,210);
+		Color foreGround = new java.awt.Color(250, 250, 210);
 		JList list = new JList<>(recorrerDatosPersonas(getDatosPersonas()));
 		list.setBounds(0, 0, 328, 521);
 
@@ -149,7 +163,7 @@ public class Controlador {
 		}
 
 		for (Punto p : puntos) {
-			if (choca(punto, p)   ) {
+			if (choca(punto, p)) {
 				return false;
 			}
 		}
@@ -160,34 +174,31 @@ public class Controlador {
 
 		Grafico.agregarLinea(p1.getX() + 20, p1.getY() + 20, p2.getX() + 20, p2.getY() + 20, g);
 	}
-	
+
 	public static double estadisticasGrupo1() {
-		ArrayList <Set<Persona>> grupo = obtenerGrupos();
+		ArrayList<Set<Persona>> grupo = obtenerGrupos();
 		Set<Persona> grupo1 = grupo.get(0);
 		Set<Persona> grupo2 = grupo.get(1);
- 		return promedioDeSimilaridad(grupo1);
- 	
- 		
+		return promedioDeSimilaridad(grupo1);
+
 	}
-	
+
 	public static double estadisticasGrupo2() {
-		ArrayList <Set<Persona>> grupo = obtenerGrupos();
+		ArrayList<Set<Persona>> grupo = obtenerGrupos();
 		Set<Persona> grupo1 = grupo.get(0);
 		Set<Persona> grupo2 = grupo.get(1);
- 		return promedioDeSimilaridad(grupo2);
- 		
+		return promedioDeSimilaridad(grupo2);
+
 	}
-	
-	public static double promedioDeSimilaridad (Set <Persona> grup) {
-		double prom = 0; 
+
+	public static double promedioDeSimilaridad(Set<Persona> grup) {
+		double prom = 0;
 		for (Persona p : grup) {
 			for (Persona otro : grup) {
 				prom = prom + p.indiceDeSimilaridad(otro);
 			}
 		}
-		return (prom / grup.size())/2;
-	}
-		
-		
+		return Math.floor(100*(prom / grup.size()) / 2)/100;
 	}
 
+}

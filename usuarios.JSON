@@ -1,20 +1,12 @@
 {
   "personas": [
     {
-      "nombre": "adsjnlasnd",
+      "nombre": "Hola",
       "musica": 2,
       "deporte": 2,
       "espectaculo": 2,
       "ciencia": 2,
-      "arte": 2
-    },
-    {
-      "nombre": "jaljds",
-      "musica": 2,
-      "deporte": 1,
-      "espectaculo": 2,
-      "ciencia": 2,
-      "arte": 2
+      "arte": 4
     }
   ]
 }
