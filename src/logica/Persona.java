@@ -30,7 +30,7 @@ public class Persona {
 			throw new IllegalArgumentException("El nombre no puede ser vac�o");
 		}
 		if (nombre.length() < 1) {
-			throw new IllegalArgumentException("El nombre debe ser mayor igual a 3 caracteres");
+			throw new IllegalArgumentException("El nombre debe ser mayor igual a 1 caracter");
 
 		}
 	}
@@ -75,6 +75,10 @@ public class Persona {
 
 		return indiceMusica + indiceArte + indiceCiencia + indiceEspectaculo + indiceDeporte;
 
+	}
+	
+	public int sumaDeIntereses () {
+		return this.arte + this.ciencia + this.deporte + this.espectaculo + this.musica;
 	}
 
 	@Override

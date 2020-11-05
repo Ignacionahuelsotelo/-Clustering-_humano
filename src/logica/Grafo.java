@@ -83,6 +83,34 @@ public class Grafo {
 		verificarDistintos(i, j);
 		return vertices.get(i).indiceDeSimilaridad(vertices.get(j));
 	}
+	
+	public boolean sonPesosIguales() {
+		int [][] pesos = calcularPesos();
+		boolean ret = true;
+		int pesoActual = obtenerPrimerPositivo(pesos);
+		
+		for (int i =0; i<pesos.length -1; i++) {
+			for (int j=i+1; j<pesos.length; j++) {
+				if (pesos[i][j] != -1 && pesos[i][j] != pesoActual) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	
+		
+	public int obtenerPrimerPositivo(int [][] pesos) {
+		for (int i =0; i<pesos.length -1; i++) {
+			for (int j=i+1; j<pesos.length; j++) {
+				if (pesos[i][j] != -1) {
+					return pesos[i][j];
+				}
+			}
+		}
+		return -1;
+		}
+	
 
 	public void completarGrafo() {
 		if(tamanio()<2)

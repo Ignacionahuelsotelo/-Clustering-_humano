@@ -2,27 +2,27 @@
   "personas": [
     {
       "nombre": "Fer",
-      "musica": 0,
-      "deporte": 0,
-      "espectaculo": 0,
-      "ciencia": 0,
-      "arte": 0
+      "musica": 1,
+      "deporte": 1,
+      "espectaculo": 1,
+      "ciencia": 1,
+      "arte": 1
     },
     {
       "nombre": "Nacho",
-      "musica": 0,
-      "deporte": 0,
-      "espectaculo": 0,
-      "ciencia": 0,
-      "arte": 0
+      "musica": 1,
+      "deporte": 1,
+      "espectaculo": 1,
+      "ciencia": 1,
+      "arte": 1
     },
     {
       "nombre": "Melina",
-      "musica": 0,
-      "deporte": 0,
-      "espectaculo": 0,
-      "ciencia": 0,
-      "arte": 0
+      "musica": 1,
+      "deporte": 1,
+      "espectaculo": 1,
+      "ciencia": 1,
+      "arte": 1
   
     }
   ]

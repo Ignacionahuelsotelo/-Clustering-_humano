@@ -35,7 +35,7 @@ public class VentanaGrafo extends ModeloVentana{
 
 	
 	public void initialize() {		
-		panelGrafo.setBounds(0, 0, 1385, 750);
+		panelGrafo.setBounds(0, 0, 1400, 750);
 		panelGrafo.setBorder(null);
 		panelGrafo.setLayout(null);
 		panelGrafo.setBackground(new java.awt.Color(250,250,210));

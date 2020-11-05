@@ -55,7 +55,7 @@ public class VentanaInicial extends ModeloVentana  {
 	 */
 	private void initialize() {
 		
-		panelInicial.setBounds(0, 0, 1385, 750);
+		panelInicial.setBounds(0, 0, 1400, 750);
 		panelInicial.setBorder(null);
 		panelInicial.setLayout(null);
 		panelInicial.setBackground(new java.awt.Color(250,250,210));
@@ -83,6 +83,8 @@ public class VentanaInicial extends ModeloVentana  {
 		btnClustering.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				cVent.cambiarAGrafo();
+				Controlador.estadisticasGrupo1();
+				Controlador.estadisticasGrupo2();
 			}
 		});
 		

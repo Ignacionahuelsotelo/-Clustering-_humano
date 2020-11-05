@@ -45,7 +45,9 @@ public class Clasificador {
 			return grafo;
 		completarGrafo();
 		Grafo nuevo = AGM.generadoMin(grafo);
-		nuevo.eliminarNodoMasPesado();
+		if (!nuevo.sonPesosIguales()) {
+				nuevo.eliminarNodoMasPesado();
+		}
 		return nuevo;
 	}
 

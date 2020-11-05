@@ -69,10 +69,9 @@ public class ModeloVentana{
 	protected JComboBox crearComboBox(JPanel panelCarga, int x, int y) {
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(x,y, 140, 20);
-		comboBox.setModel(new DefaultComboBoxModel (new String [] { "Seleccione interes" , "1", "2", "3", "4", "5"}));
+		comboBox.setModel(new DefaultComboBoxModel (new String [] { "Seleccione interes", "1", "2", "3", "4", "5"}));
 		panelCarga.add(comboBox);
 		return comboBox;
-		
 	}
 	
 //	public JLabel crearBotonImagen(JPanel panel ,Juego juego,int posBX, int posBY, int anchoB, int altoB, int posIX, int posIY, int anchoI, int altoI) {

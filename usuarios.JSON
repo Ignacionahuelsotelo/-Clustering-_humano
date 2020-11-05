@@ -1,20 +1,20 @@
 {
   "personas": [
     {
-      "nombre": "nahco",
-      "musica": 0,
-      "deporte": 0,
-      "espectaculo": 0,
-      "ciencia": 0,
-      "arte": 0
+      "nombre": "adsjnlasnd",
+      "musica": 2,
+      "deporte": 2,
+      "espectaculo": 2,
+      "ciencia": 2,
+      "arte": 2
     },
     {
-      "nombre": "fer",
-      "musica": 0,
-      "deporte": 0,
-      "espectaculo": 0,
-      "ciencia": 0,
-      "arte": 0
+      "nombre": "jaljds",
+      "musica": 2,
+      "deporte": 1,
+      "espectaculo": 2,
+      "ciencia": 2,
+      "arte": 2
     }
   ]
 }
