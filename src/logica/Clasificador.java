@@ -82,7 +82,7 @@ public class Clasificador {
 
 	@Override
 	public String toString() {
-		return "Grupo1=" + grupo1 + "\n"+"Grupo2=" + grupo2;
+		return "Grupo1=" + grupo1 + ", Grupo2=" + grupo2;
 	}
 	
 	

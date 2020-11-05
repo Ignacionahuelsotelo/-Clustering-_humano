@@ -63,39 +63,28 @@ public class Controlador {
 		int centroY = 300;
 		int anchoX = 400;
 		int anchoY = 200;
-		
+		int centroIzq = 350;
+		int centroDer = 900;
+
 		Grafo nuevo = clasificador.dividirGrafo();
 		Set<Persona> grupo1 = obtenerGrupos().get(0);
-		
+
 		Font fuenteNombre = new Font("Sitka Banner", java.awt.Font.PLAIN, 30);
 		g.setFont(fuenteNombre);
 		g.setColor(Color.darkGray);
 
-		
 		ArrayList<Punto> puntos = new ArrayList<Punto>();
 		Punto p;
-		for (int i = 0; i < nuevo.tamanio(); i++) {
-			if (grupo1.contains(nuevo.getNodo(i))) {
-				centroX = 350;
 
-			} else {
-				centroX = 900;
-			}
-			
-			int numero1 = randomInt(centroX, anchoX);
-			int numero2 = randomInt(centroY, anchoY);
-			p = new Punto(numero1, numero2);
-		
-			while (!puedeAgregar(puntos, p)) { // || p.getY() > 30 || p.getY() < 500
-				numero1 = randomInt(centroX, anchoX);
-				numero2 = randomInt(centroY, anchoY);
-				p = new Punto(numero1, numero2);
+		for (Persona persona : nuevo.vertices()) {
 
-			}
+			centroX = grupo1.contains(persona) ? centroIzq : centroDer;
+
+			p = obtenerPuntoValido(puntos, centroX, centroY, anchoX, anchoY);
 
 			puntos.add(p);
-			Grafico.agregarCirculo(numero1, numero2, g);
-			g.drawString(nuevo.getNodo(i).getNombre(), numero1 - 10, numero2 - 10);
+			Grafico.agregarCirculo(p.getX(), p.getY(), g);
+			g.drawString(persona.getNombre(), p.getX() - 10, p.getY() - 10);
 
 		}
 
@@ -107,8 +96,8 @@ public class Controlador {
 				}
 			}
 		}
-		g.drawString("Grupo 1: "+clasificador.getGrupo1().toString(), 700, 500);
-		g.drawString("Grupo 2: "+clasificador.getGrupo2().toString(), 700, 550);
+		g.drawString("Grupo 1: " + clasificador.getGrupo1().toString(), 700, 500);
+		g.drawString("Grupo 2: " + clasificador.getGrupo2().toString(), 700, 550);
 		g.drawString("Promedio similaridad grupo 1:  " + estadisticasGrupo1(), 700, 600);
 		g.drawString("Promedio similaridad grupo 2:  " + estadisticasGrupo2(), 700, 650);
 
@@ -170,6 +159,17 @@ public class Controlador {
 		return true;
 	}
 
+	public static Punto obtenerPuntoValido(ArrayList<Punto> puntos, int centroX, int centroY, int anchoX, int anchoY) {
+		Punto p;
+		p = new Punto(randomInt(centroX, anchoX), randomInt(centroY, anchoY));
+
+		while (!puedeAgregar(puntos, p)) { // || p.getY() > 30 || p.getY() < 500
+			p = new Punto(randomInt(centroX, anchoX), randomInt(centroY, anchoY));
+
+		}
+		return p;
+	}
+
 	public static void graficarArista(Punto p1, Punto p2, Graphics g) {
 
 		Grafico.agregarLinea(p1.getX() + 20, p1.getY() + 20, p2.getX() + 20, p2.getY() + 20, g);
@@ -198,7 +198,7 @@ public class Controlador {
 				prom = prom + p.indiceDeSimilaridad(otro);
 			}
 		}
-		return Math.floor(100*(prom / grup.size()) / 2)/100;
+		return Math.floor(100 * (prom / grup.size()) / 2) / 100;
 	}
 
 }
