@@ -24,6 +24,10 @@ public class BFS{
 
 	public static Set<Persona> alcanzables(Grafo grafo, int origen) {
 		Set<Persona> alcanzados = new HashSet<Persona>();
+		
+		if(grafo==null || grafo.tamanio()<1)
+			return alcanzados;
+		
 		inicializar(grafo,origen);
 		
 		while (pendientes.size()>0) {

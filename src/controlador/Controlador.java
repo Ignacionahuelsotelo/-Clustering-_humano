@@ -130,11 +130,9 @@ public class Controlador {
 		
 		
 		
-		double arte;
-		double ciencia;
-		double deporte;
-		double espectaculo;
-		double musica;
+		if(grup==null || grup.size()==0) {
+			return prom;
+		}
 		
 		for (Persona p : grup) {
 			actual = p.promedioDeInteresesPorTema();
