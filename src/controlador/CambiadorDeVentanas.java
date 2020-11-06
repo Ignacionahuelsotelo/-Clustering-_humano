@@ -27,4 +27,11 @@ public class CambiadorDeVentanas {
 	public  void cambiarAGrafo() {
 		m.cambiarAGrafo();
 	}
+
+
+
+	public void cambiarAEstadisticas() {
+		m.cambiarAEstadisticas();
+		
+	}
 }

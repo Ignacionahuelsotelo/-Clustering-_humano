@@ -107,8 +107,48 @@ public class Controlador {
 		g.drawString("Grupo 2: " + clasificador.getGrupo2().toString(), 700, 550);
 		g.drawString("Promedio similaridad grupo 1:  " + estadisticasGrupo1(), 700, 600);
 		g.drawString("Promedio similaridad grupo 2:  " + estadisticasGrupo2(), 700, 650);
+		g.drawString("Promedio similaridad por tema del grupo 1 " + promedioPorTemas(clasificador.getGrupo1()), 700,700 );
+		g.drawString("Promedio similaridad por tema del grupo 2 " + promedioPorTemas(clasificador.getGrupo2()), 700,750 );
 	}
+	public static double[] getEstadisticasGrupo1 () {
+		double[] estadisticas = new double[6];
+		double [] promedioPorTemas = new double[5];
+		promedioPorTemas = promedioPorTemas(clasificador.getGrupo1());
+		double estadisticaGeneral = estadisticasGrupo1();
+		estadisticas[0] = estadisticaGeneral;
+		
+		for (int i = 1; i < promedioPorTemas.length;i++) {
+			estadisticas[i] = promedioPorTemas[i];
+		}
+		return estadisticas;
+	}
+	
 
+	public static double[] promedioPorTemas(Set<Persona> grup) {
+		double[] prom = new double [5];
+		double[] actual = new double [5];
+		
+		
+		
+		double arte;
+		double ciencia;
+		double deporte;
+		double espectaculo;
+		double musica;
+		
+		for (Persona p : grup) {
+			actual = p.promedioDeInteresesPorTema();
+			for (int i = 0 ; i < actual.length; i++) {
+				actual[i] = actual[i] /5;
+				prom[i] = prom[i] + actual[i];
+			}
+		}
+		
+		
+			return prom;
+		
+		
+	}
 	public static ArrayList<String> getDatosPersonas() {
 		ArrayList<String> personasCargadas = PersonasJSON.leerJSON("usuarios.JSON").getPersonasString();
 		ArrayList<String> personas = PersonasJSON.leerJSON("PersonasPretty.JSON").getPersonasString();

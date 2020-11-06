@@ -1,12 +1,14 @@
 package visual;
 
 import java.awt.EventQueue;
+import java.awt.Window;
 
 import javax.swing.JFrame;
 import controlador.CambiadorDeVentanas;
 import controlador.Controlador;
 import javax.swing.JPanel;
 import java.awt.Color;
+import java.awt.Component;
 
 public class Main {
 
@@ -17,6 +19,8 @@ public class Main {
 	private JPanel panelInicial;
 	private JPanel panelCarga;
 	private PanelGrafo panelGrafo;
+	private JPanel panelEstadisticas;
+	private Estadisticas ventanaEstadisticas;
 
 	/**
 	 * Launch the application.
@@ -57,14 +61,18 @@ public class Main {
 		frame.setVisible(true);
 
 		panelInicial = new JPanel();
-		panelInicial.setBackground(new Color(250, 250, 210));
+		
 		panelCarga = new JPanel();
-		panelCarga.setBackground(new Color(51, 51, 51));
+		
 		panelGrafo = new PanelGrafo();
-
+		
+		panelEstadisticas = new JPanel();
+		
+		
 		frame.getContentPane().add(panelInicial);
 		frame.getContentPane().add(panelGrafo);
 		frame.getContentPane().add(panelCarga);
+		frame.getContentPane().add(panelEstadisticas);
 
 		CambiadorDeVentanas cVent = new CambiadorDeVentanas(this);
 
@@ -73,6 +81,8 @@ public class Main {
 		ventanaDeCarga = new VentanaDeCarga(panelCarga, cVent);
 
 		ventanaGrafo = new VentanaGrafo(panelGrafo, cVent);
+		
+		ventanaEstadisticas = new Estadisticas(panelEstadisticas, cVent); 
 
 		cVent.cambiarAInicial();
 
@@ -86,6 +96,8 @@ public class Main {
 		panelCarga.setEnabled(false);
 		panelGrafo.setVisible(false);
 		panelGrafo.setEnabled(false);
+		panelEstadisticas.setVisible(false);
+		panelEstadisticas.setEnabled(false);
 	}
 
 	public void cambiarAInicial() {
@@ -108,5 +120,14 @@ public class Main {
 		panelGrafo.setEnabled(true);
 		panelGrafo.setVisible(true);
 	}
+
+	public void cambiarAEstadisticas() {
+		ocultarPaneles();
+		
+		panelEstadisticas.setEnabled(true);
+		panelEstadisticas.setVisible(true);
+	}
+		
+	
 
 }

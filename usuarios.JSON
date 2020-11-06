@@ -1,12 +1,12 @@
 {
   "personas": [
     {
-      "nombre": "Hola",
-      "musica": 2,
-      "deporte": 2,
+      "nombre": "nahco",
+      "musica": 3,
+      "deporte": 3,
       "espectaculo": 2,
-      "ciencia": 2,
-      "arte": 4
+      "ciencia": 1,
+      "arte": 3
     }
   ]
 }

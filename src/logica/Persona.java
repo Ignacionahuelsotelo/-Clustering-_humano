@@ -80,11 +80,27 @@ public class Persona {
 	public int sumaDeIntereses () {
 		return this.arte + this.ciencia + this.deporte + this.espectaculo + this.musica;
 	}
+	
+	public double [] promedioDeInteresesPorTema () { 
+		double [] interesesPorTemas = new double [ 5];
+		
+		interesesPorTemas[0] =  this.arte ;
+		interesesPorTemas[1] =  this.ciencia ;
+		interesesPorTemas[2] =  this.deporte ;
+		interesesPorTemas[3] =  this.espectaculo;
+		interesesPorTemas[4] =  this.musica ;
+		
+		return interesesPorTemas;
+
+		 		 
+	}
 
 	@Override
 	public String toString() {
 		return  nombre ;
 	}
+	
+	
 
 	@Override
 	public int hashCode() {
