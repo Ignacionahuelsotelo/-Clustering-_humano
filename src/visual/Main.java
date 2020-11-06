@@ -3,13 +3,8 @@ package visual;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JScrollPane;
-
 import controlador.CambiadorDeVentanas;
 import controlador.Controlador;
-import logica.Clasificador;
-
-import javax.swing.JScrollBar;
 import javax.swing.JPanel;
 import java.awt.Color;
 
@@ -43,8 +38,7 @@ public class Main {
 	 * Create the application.
 	 */
 	public Main() {
-		
-		
+
 		initialize();
 	}
 
@@ -53,43 +47,39 @@ public class Main {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		//frame.setBounds(100, 100, 450, 300);
+
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		frame.setTitle("Clustering");
-		
+
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-	 
+
 		frame.setVisible(true);
-		
+
 		panelInicial = new JPanel();
 		panelInicial.setBackground(new Color(250, 250, 210));
 		panelCarga = new JPanel();
 		panelCarga.setBackground(new Color(51, 51, 51));
 		panelGrafo = new PanelGrafo();
-		
-		frame.getContentPane().add(panelInicial);
-		frame.getContentPane().add(panelGrafo);	
-		frame.getContentPane().add(panelCarga);
-		
-		CambiadorDeVentanas cVent = new CambiadorDeVentanas(this);
-		
-		
-		ventanaInicial = new VentanaInicial(panelInicial,cVent);
-		
-		ventanaDeCarga = new VentanaDeCarga(panelCarga,cVent);
-		
-		ventanaGrafo = new VentanaGrafo(panelGrafo,cVent);
 
-		
-		
+		frame.getContentPane().add(panelInicial);
+		frame.getContentPane().add(panelGrafo);
+		frame.getContentPane().add(panelCarga);
+
+		CambiadorDeVentanas cVent = new CambiadorDeVentanas(this);
+
+		ventanaInicial = new VentanaInicial(panelInicial, cVent);
+
+		ventanaDeCarga = new VentanaDeCarga(panelCarga, cVent);
+
+		ventanaGrafo = new VentanaGrafo(panelGrafo, cVent);
+
 		cVent.cambiarAInicial();
 
 		Controlador.cargarBase();
 	}
-	
-	
-	public  void ocultarPaneles() {
+
+	public void ocultarPaneles() {
 		panelInicial.setVisible(false);
 		panelInicial.setEnabled(false);
 		panelCarga.setVisible(false);
@@ -97,27 +87,26 @@ public class Main {
 		panelGrafo.setVisible(false);
 		panelGrafo.setEnabled(false);
 	}
-	
-	
-	public  void cambiarAInicial() {
+
+	public void cambiarAInicial() {
 		ocultarPaneles();
 		panelInicial.setEnabled(true);
 		panelInicial.setVisible(true);
-		
+
 		Controlador.agregarLista(ventanaInicial.getPanelPersonas());
-		
+
 	}
-	
-	public  void cambiarACarga() {
+
+	public void cambiarACarga() {
 		ocultarPaneles();
 		panelCarga.setEnabled(true);
 		panelCarga.setVisible(true);
 	}
-	
-	public  void cambiarAGrafo() {
+
+	public void cambiarAGrafo() {
 		ocultarPaneles();
 		panelGrafo.setEnabled(true);
 		panelGrafo.setVisible(true);
 	}
-	
+
 }

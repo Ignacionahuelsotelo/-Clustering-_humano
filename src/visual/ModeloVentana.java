@@ -20,10 +20,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
+public class ModeloVentana {
 
-
-public class ModeloVentana{
-	
 	protected JLabel createJLabel(JPanel panel, String texto, Color color, Font fuente, int posX, int posY, int ancho,
 			int alto) {
 		JLabel titulo = new JLabel(texto);
@@ -60,27 +58,28 @@ public class ModeloVentana{
 		panel.add(boton);
 		return boton;
 	}
-	
+
 	protected void makeFrameFullSize(JFrame aFrame) {
-	    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-	    aFrame.setSize(screenSize.width, screenSize.height);
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		aFrame.setSize(screenSize.width, screenSize.height);
 	}
-	
+
 	protected JComboBox crearComboBox(JPanel panelCarga, int x, int y) {
 		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(x,y, 140, 20);
-		comboBox.setModel(new DefaultComboBoxModel (new String [] { "Seleccione interes", "1", "2", "3", "4", "5"}));
+		comboBox.setBounds(x, y, 140, 20);
+		comboBox.setModel(new DefaultComboBoxModel(new String[] { "Seleccione interes", "1", "2", "3", "4", "5" }));
 		panelCarga.add(comboBox);
 		return comboBox;
 	}
-	
-	public JLabel crearBotonImagen(JPanel panel ,int posBX, int posBY, int anchoB, int altoB, int posIX, int posIY, int anchoI, int altoI) {
+
+	public JLabel crearBotonImagen(JPanel panel, int posBX, int posBY, int anchoB, int altoB, int posIX, int posIY,
+			int anchoI, int altoI) {
 		JLabel foto = new JLabel("");
 		foto.setBounds(posIX, posIY, anchoI, altoI);
 		foto.setBorder(new LineBorder(new Color(240, 230, 140), 2));
 		panel.add(foto);
 		JButton boton = createButton(panel, "Elegir foto", null, null, null, posBX, posBY, anchoB, altoB);
-		
+
 		boton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser fc = new JFileChooser();
@@ -89,14 +88,15 @@ public class ModeloVentana{
 				if (fc.showOpenDialog(panel) == JFileChooser.APPROVE_OPTION) {
 
 					Image img = new ImageIcon(fc.getSelectedFile().toString()).getImage();
-					ImageIcon icon = new ImageIcon(img.getScaledInstance(img.getWidth(foto)-250, img.getHeight(foto)-250, Image.SCALE_DEFAULT));
-					
+					ImageIcon icon = new ImageIcon(img.getScaledInstance(img.getWidth(foto) - 250,
+							img.getHeight(foto) - 250, Image.SCALE_DEFAULT));
+
 					foto.setIcon(icon);
 
 				}
 			}
 		});
 		return foto;
-		
+
 	}
 }

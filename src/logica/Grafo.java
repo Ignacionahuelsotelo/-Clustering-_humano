@@ -83,14 +83,13 @@ public class Grafo {
 		verificarDistintos(i, j);
 		return vertices.get(i).indiceDeSimilaridad(vertices.get(j));
 	}
-	
+
 	public boolean sonPesosIguales() {
-		int [][] pesos = calcularPesos();
-		boolean ret = true;
+		int[][] pesos = calcularPesos();
 		int pesoActual = obtenerPrimerPositivo(pesos);
-		
-		for (int i =0; i<pesos.length -1; i++) {
-			for (int j=i+1; j<pesos.length; j++) {
+
+		for (int i = 0; i < pesos.length - 1; i++) {
+			for (int j = i + 1; j < pesos.length; j++) {
 				if (pesos[i][j] != -1 && pesos[i][j] != pesoActual) {
 					return false;
 				}
@@ -98,24 +97,22 @@ public class Grafo {
 		}
 		return true;
 	}
-	
-		
-	public int obtenerPrimerPositivo(int [][] pesos) {
-		for (int i =0; i<pesos.length -1; i++) {
-			for (int j=i+1; j<pesos.length; j++) {
+
+	public int obtenerPrimerPositivo(int[][] pesos) {
+		for (int i = 0; i < pesos.length - 1; i++) {
+			for (int j = i + 1; j < pesos.length; j++) {
 				if (pesos[i][j] != -1) {
 					return pesos[i][j];
 				}
 			}
 		}
 		return -1;
-		}
-	
+	}
 
 	public void completarGrafo() {
-		if(tamanio()<2)
+		if (tamanio() < 2)
 			return;
-		if(tamanio()==2){
+		if (tamanio() == 2) {
 			agregarArista(0, 1);
 			return;
 		}
@@ -130,7 +127,7 @@ public class Grafo {
 	public boolean esUnVertice(Persona p) {
 		return vertices.contains(p);
 	}
-	
+
 	public Persona getNodo(int i) {
 		verificarVertice(i);
 		return vertices.get(i);
@@ -168,11 +165,10 @@ public class Grafo {
 			}
 		}
 
-		if(!existeArista(iMin, jMin)) {
-			throw new IllegalStateException("Los valores encontrados no son validos iMin=" 
-						+iMin+ " jMIn="+jMin);
+		if (!existeArista(iMin, jMin)) {
+			throw new IllegalStateException("Los valores encontrados no son validos iMin=" + iMin + " jMIn=" + jMin);
 		}
-		
+
 		eliminarArista(iMin, jMin);
 
 	}
@@ -187,6 +183,5 @@ public class Grafo {
 		}
 		return completo;
 	}
-	
-	
+
 }

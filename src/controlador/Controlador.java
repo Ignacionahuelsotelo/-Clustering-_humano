@@ -61,8 +61,6 @@ public class Controlador {
 	public static void graficarGrupos(Graphics g) {
 		int centroX;
 		int centroY = 300;
-		int anchoX = 400;
-		int anchoY = 200;
 		int centroIzq = 350;
 		int centroDer = 900;
 
@@ -80,7 +78,7 @@ public class Controlador {
 
 			centroX = grupo1.contains(persona) ? centroIzq : centroDer;
 
-			p = obtenerPuntoValido(puntos, centroX, centroY, anchoX, anchoY);
+			p = obtenerPuntoValido(puntos, centroX, centroY, 400,200);
 
 			puntos.add(p);
 			Grafico.agregarCirculo(p.getX(), p.getY(), g);
@@ -88,6 +86,12 @@ public class Controlador {
 
 		}
 
+		graficarAristaGrupos(g, nuevo, puntos);
+		textoDeGrafo(g);
+
+	}
+
+	private static void graficarAristaGrupos(Graphics g, Grafo nuevo, ArrayList<Punto> puntos) {
 		for (int i = 0; i < nuevo.tamanio() - 1; i++) {
 			for (int j = i + 1; j < nuevo.tamanio(); j++) {
 				if (nuevo.existeArista(i, j)) {
@@ -96,11 +100,13 @@ public class Controlador {
 				}
 			}
 		}
+	}
+
+	private static void textoDeGrafo(Graphics g) {
 		g.drawString("Grupo 1: " + clasificador.getGrupo1().toString(), 700, 500);
 		g.drawString("Grupo 2: " + clasificador.getGrupo2().toString(), 700, 550);
 		g.drawString("Promedio similaridad grupo 1:  " + estadisticasGrupo1(), 700, 600);
 		g.drawString("Promedio similaridad grupo 2:  " + estadisticasGrupo2(), 700, 650);
-
 	}
 
 	public static ArrayList<String> getDatosPersonas() {
@@ -178,14 +184,12 @@ public class Controlador {
 	public static double estadisticasGrupo1() {
 		ArrayList<Set<Persona>> grupo = obtenerGrupos();
 		Set<Persona> grupo1 = grupo.get(0);
-		Set<Persona> grupo2 = grupo.get(1);
 		return promedioDeSimilaridad(grupo1);
 
 	}
 
 	public static double estadisticasGrupo2() {
 		ArrayList<Set<Persona>> grupo = obtenerGrupos();
-		Set<Persona> grupo1 = grupo.get(0);
 		Set<Persona> grupo2 = grupo.get(1);
 		return promedioDeSimilaridad(grupo2);
 

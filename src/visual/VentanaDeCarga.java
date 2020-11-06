@@ -2,7 +2,6 @@ package visual;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -15,9 +14,8 @@ import javax.swing.JPanel;
 import controlador.CambiadorDeVentanas;
 import controlador.Controlador;
 
-import javax.swing.JLabel;
 import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
+
 import javax.swing.JButton;
 
 public class VentanaDeCarga extends ModeloVentana {
@@ -76,7 +74,7 @@ public class VentanaDeCarga extends ModeloVentana {
 		Font buttonFont = new Font("Sitka Banner", java.awt.Font.PLAIN, 15);
 		Color background = new Color(240, 230, 140);
 
-		crearBotonImagen(panelCarga,755, 182, 189, 40,755, 250, 350, 350);
+		crearBotonImagen(panelCarga, 755, 182, 189, 40, 755, 250, 350, 350);
 		JButton volver = createButton(panelCarga, "Volver al menu principal", foreGround, buttonFont, background, 720,
 				617, 189, 40);
 		volver.addActionListener(new ActionListener() {
