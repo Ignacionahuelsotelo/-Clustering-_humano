@@ -78,7 +78,8 @@ public class Controlador {
 
 		ArrayList<Punto> puntos = new ArrayList<Punto>();
 		Punto p;
-
+		
+		
 		for (int i=0;i<nuevo.tamanio();i++) {
 			Persona persona = nuevo.vertices().get(i);
 
