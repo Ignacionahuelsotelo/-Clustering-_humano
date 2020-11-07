@@ -127,6 +127,10 @@ public class Main {
 		panelEstadisticas.setEnabled(true);
 		panelEstadisticas.setVisible(true);
 	}
+
+	public PanelGrafo getPanelGrafo() {
+		return panelGrafo;
+	}
 		
 	
 

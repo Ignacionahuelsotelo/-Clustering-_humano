@@ -9,13 +9,14 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import controlador.CambiadorDeVentanas;
 import controlador.Controlador;
 
 import javax.swing.JComboBox;
-
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 public class VentanaDeCarga extends ModeloVentana {
@@ -24,6 +25,8 @@ public class VentanaDeCarga extends ModeloVentana {
 	private CambiadorDeVentanas cVent;
 	private javax.swing.JTextField textNombre;
 	private ArrayList<JComboBox> combos;
+	private static String foto;
+	private JLabel fotoLabel;
 
 	/**
 	 * Launch the application.
@@ -74,12 +77,16 @@ public class VentanaDeCarga extends ModeloVentana {
 		Font buttonFont = new Font("Sitka Banner", java.awt.Font.PLAIN, 15);
 		Color background = new Color(240, 230, 140);
 
-		crearBotonImagen(panelCarga, 755, 182, 189, 40, 755, 250, 350, 350);
+		fotoLabel = crearBotonImagen(panelCarga, 755, 182, 189, 40, 755, 250, 350, 350);
+
 		JButton volver = createButton(panelCarga, "Volver al menu principal", foreGround, buttonFont, background, 720,
 				617, 189, 40);
 		volver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				cVent.cambiarAInicial();
+				borrarComboBox();
+				borrarFoto();
+				borrarNombres();
 			}
 		});
 
@@ -91,16 +98,12 @@ public class VentanaDeCarga extends ModeloVentana {
 				cVent.cambiarAInicial();
 				borrarNombres();
 				borrarComboBox();
+				borrarFoto();
 
 			}
 		});
 
 		panelCarga.setVisible(false);
-	}
-
-	protected void makeFrameFullSize(JFrame aFrame) {
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		aFrame.setSize(screenSize.width, screenSize.height);
 	}
 
 	public ArrayList<JComboBox> crearComboBoxes() {
@@ -117,7 +120,7 @@ public class VentanaDeCarga extends ModeloVentana {
 
 		Controlador.agregarPersona(textNombre.getText(), combos.get(1).getSelectedIndex(),
 				combos.get(2).getSelectedIndex(), combos.get(3).getSelectedIndex(), combos.get(4).getSelectedIndex(),
-				combos.get(0).getSelectedIndex());
+				combos.get(0).getSelectedIndex(), foto);
 		Controlador.guardarPersona();
 
 	}
@@ -135,4 +138,12 @@ public class VentanaDeCarga extends ModeloVentana {
 		}
 	}
 
+	public static void setFoto(String nuevaFoto) {
+		VentanaDeCarga.foto = nuevaFoto;
+	}
+
+	public void borrarFoto() {
+		VentanaDeCarga.foto = null;
+		fotoLabel.setIcon(null);
+	}
 }

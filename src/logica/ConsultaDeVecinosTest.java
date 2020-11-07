@@ -18,11 +18,11 @@ public class ConsultaDeVecinosTest {
 	@Before
 	public void setUp() throws Exception {
 		grafo = new Grafo();
-		p1 = new Persona("A", 1, 1, 1, 1, 1);
-		p2 = new Persona("B", 1, 1, 1, 1, 1);
-		p3 = new Persona("C", 1, 1, 1, 1, 1);
-		p4  = new Persona("D", 1, 1, 1, 1, 1);
-		p5  = new Persona("E", 1, 1, 1, 1, 1);
+		p1 = new Persona("A", 1, 1, 1, 1, 1,null);
+		p2 = new Persona("B", 1, 1, 1, 1, 1,null);
+		p3 = new Persona("C", 1, 1, 1, 1, 1,null);
+		p4  = new Persona("D", 1, 1, 1, 1, 1,null);
+		p5  = new Persona("E", 1, 1, 1, 1, 1,null);
 		grafo.agregarVertice(p1);
 		grafo.agregarVertice(p2);
 		grafo.agregarVertice(p3);

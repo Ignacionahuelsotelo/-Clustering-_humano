@@ -84,15 +84,19 @@ public class ModeloVentana {
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser fc = new JFileChooser();
 				fc.setDialogTitle("Buscar foto");
-
+				
+				
 				if (fc.showOpenDialog(panel) == JFileChooser.APPROVE_OPTION) {
-
+					
+					
+					
 					Image img = new ImageIcon(fc.getSelectedFile().toString()).getImage();
-					ImageIcon icon = new ImageIcon(img.getScaledInstance(img.getWidth(foto),
-							img.getHeight(foto) , Image.SCALE_DEFAULT));
+					ImageIcon icon = new ImageIcon(
+							img.getScaledInstance(img.getWidth(foto)-250, img.getHeight(foto)-250, Image.SCALE_DEFAULT));
 
+					
 					foto.setIcon(icon);
-
+					VentanaDeCarga.setFoto(fc.getSelectedFile().toString());
 				}
 			}
 		});

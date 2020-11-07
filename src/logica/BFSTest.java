@@ -18,10 +18,10 @@ public class BFSTest {
 	@Before
 	public void setUp() throws Exception {
 		grafo = new Grafo();
-		p0 = new Persona("A", 1, 1, 1, 1, 1);
-		p1 = new Persona("B", 1, 1, 1, 1, 1);
-		p2 = new Persona("C", 1, 1, 1, 1, 1);
-		p3  = new Persona("D", 1, 1, 1, 1, 1);
+		p0 = new Persona("A", 1, 1, 1, 1, 1,null);
+		p1 = new Persona("B", 1, 1, 1, 1, 1,null);
+		p2 = new Persona("C", 1, 1, 1, 1, 1,null);
+		p3  = new Persona("D", 1, 1, 1, 1, 1,null);
 		grafo.agregarVertice(p0);
 		grafo.agregarVertice(p1);
 		grafo.agregarVertice(p2);

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.swing.ImageIcon;
+
 public class Clasificador {
 	public Grafo grafo;
 	ArrayList<Persona> personas;
@@ -35,8 +37,8 @@ public class Clasificador {
 	}
 
 	// Carga los atributos de las personas y las agrega a personas
-	public void cargarPersona(String nombre, int musica, int deporte, int espectaculo, int ciencia, int arte) {
-		Persona persona = new Persona(nombre, musica, deporte, espectaculo, ciencia, arte);
+	public void cargarPersona(String nombre, int musica, int deporte, int espectaculo, int ciencia, int arte, String foto) {
+		Persona persona = new Persona(nombre, musica, deporte, espectaculo, ciencia, arte,foto);
 		agregarPersonas(persona);
 	}
 

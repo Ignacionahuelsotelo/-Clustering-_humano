@@ -1,5 +1,7 @@
 package logica;
 
+import javax.swing.ImageIcon;
+
 public class Persona {
 	private String nombre;
 	private int musica;
@@ -7,8 +9,9 @@ public class Persona {
 	private int espectaculo;
 	private int ciencia;
 	private int arte;
+	private String foto;
 
-	public Persona(String nombre, int musica, int deporte, int espectaculo, int ciencia, int arte) {
+	public Persona(String nombre, int musica, int deporte, int espectaculo, int ciencia, int arte, String foto) {
 
 		nombreValido(nombre);
 		interesValido(musica, "musica");
@@ -23,6 +26,7 @@ public class Persona {
 		this.espectaculo = espectaculo;
 		this.ciencia = ciencia;
 		this.arte = arte;
+		this.foto=foto;
 	}
 
 	public void nombreValido(String nombre) {
@@ -140,6 +144,18 @@ public class Persona {
 		} else if (!nombre.equals(other.nombre))
 			return false;
 		return true;
+	}
+
+	public void setImagen(String foto) {
+		this.foto = foto;
+		
+	}
+	
+	public boolean tieneImagen() {
+		return this.foto!=null;
+	}
+	public String getImagen() {
+		return this.foto;
 	}
 
 }

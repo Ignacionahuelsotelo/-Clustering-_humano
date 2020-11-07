@@ -2,6 +2,13 @@ package visual;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import logica.Punto;
 
 public class Grafico {
 	/**
@@ -26,5 +33,21 @@ public class Grafico {
 		agregarLinea(x1, x2, y1, y2, g);
 
 	}
+	
+	public static JLabel graficarImagen(String url, Punto p, PanelGrafo panel, Graphics g) {
+		JLabel pan = new JLabel();
+		pan.setBounds(p.getX(), p.getY(), 40, 40);
+		//panel.add(pan);
+		
 
+		Image img = new ImageIcon(url).getImage();
+		img=img.getScaledInstance(40, 40, Image.SCALE_DEFAULT);
+		ImageIcon icon = new ImageIcon(
+				img.getScaledInstance(40, 40, Image.SCALE_DEFAULT));
+
+		
+		pan.setIcon(icon);
+		
+		return pan;
+	}
 }

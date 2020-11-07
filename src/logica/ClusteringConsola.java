@@ -8,11 +8,11 @@ public class ClusteringConsola {
 	public static void main(String[] args) {
 		Clasificador cl = new Clasificador ();
 		
-		cl.cargarPersona("Melina", 0, 0, 0, 0, 0);
-		cl.cargarPersona("Rororo", 0, 0, 0, 0, 0);
-		cl.cargarPersona("Perrito", 2, 2, 2, 2, 2);
-		cl.cargarPersona("Perro", 3,3,3,3,3);
-		cl.cargarPersona("Perr",3,3,3,3,3);
+		cl.cargarPersona("Melina", 0, 0, 0, 0, 0,null);
+		cl.cargarPersona("Rororo", 0, 0, 0, 0, 0,null);
+		cl.cargarPersona("Perrito", 2, 2, 2, 2, 2,null);
+		cl.cargarPersona("Perro", 3,3,3,3,3,null);
+		cl.cargarPersona("Perr",3,3,3,3,3,null);
 	
 		
 		ArrayList<Set<Persona>> grupos = cl.agruparPersonas();

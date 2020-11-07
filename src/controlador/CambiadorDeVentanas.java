@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import visual.Main;
+import visual.PanelGrafo;
 
 public class CambiadorDeVentanas {
 	
@@ -33,5 +34,9 @@ public class CambiadorDeVentanas {
 	public void cambiarAEstadisticas() {
 		m.cambiarAEstadisticas();
 		
+	}
+	
+	public static PanelGrafo getPanelGrafo() {
+		return m.getPanelGrafo();
 	}
 }

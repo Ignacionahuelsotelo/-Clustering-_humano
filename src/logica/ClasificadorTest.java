@@ -20,75 +20,75 @@ public class ClasificadorTest {
 	@Before
 	public void setUp() throws Exception {
 		c = new Clasificador();
-	
-		c.cargarPersona("Melina", 0, 0, 0, 0, 0);
-		c.cargarPersona("Rororo", 0, 0, 0, 0, 0);
-		c.cargarPersona("Perrito", 2, 2, 2, 2, 2);
-		c.cargarPersona("Perro", 3,3,3,3,3);
-		c.cargarPersona("Perr",3,3,3,3,3);
-	
-		p1= new Persona("Melina", 0, 0, 0, 0, 0);
-		p2= new Persona("Rororo", 0, 0, 0, 0, 0);
-		p3= new Persona("Perrito", 2, 2, 2, 2, 2);
-		p4= new Persona("Perro", 3,3,3,3,3);
-		p5= new Persona("Perr",3,3,3,3,3);
+
+		c.cargarPersona("Melina", 0, 0, 0, 0, 0, null);
+		c.cargarPersona("Rororo", 0, 0, 0, 0, 0, null);
+		c.cargarPersona("Perrito", 2, 2, 2, 2, 2, null);
+		c.cargarPersona("Perro", 3, 3, 3, 3, 3, null);
+		c.cargarPersona("Perr", 3, 3, 3, 3, 3, null);
+
+		p1 = new Persona("Melina", 0, 0, 0, 0, 0, null);
+		p2 = new Persona("Rororo", 0, 0, 0, 0, 0, null);
+		p3 = new Persona("Perrito", 2, 2, 2, 2, 2, null);
+		p4 = new Persona("Perro", 3, 3, 3, 3, 3, null);
+		p5 = new Persona("Perr", 3, 3, 3, 3, 3, null);
 	}
 
 	@Test(expected = NullPointerException.class)
 	public void agregarPersonaNullTest() {
 		c.agregarPersonas(null);
 	}
-	
+
 	@Test
 	public void agregarPersonaTest() {
-		c.cargarPersona("H", 1, 1, 1, 1, 1);
-		Persona p = new Persona("H", 1, 1, 1, 1, 1);
-		assertTrue(c.getGrafo().esUnVertice(p));;
+		c.cargarPersona("H", 1, 1, 1, 1, 1, null);
+		Persona p = new Persona("H", 1, 1, 1, 1, 1, null);
+		assertTrue(c.getGrafo().esUnVertice(p));
+		;
 	}
-	
+
 	@Test
 	public void personaNoAgregadaTest() {
-		c.cargarPersona("H", 1, 1, 1, 1, 1);
-		Persona p = new Persona("M", 1, 1, 1, 1, 1);
-		assertFalse(c.getGrafo().esUnVertice(p));;
+		c.cargarPersona("H", 1, 1, 1, 1, 1, null);
+		Persona p = new Persona("M", 1, 1, 1, 1, 1, null);
+		assertFalse(c.getGrafo().esUnVertice(p));
+		;
 	}
-	
+
 	@Test
 	public void completarGrafoTest() {
 		c.completarGrafo();
 		assertTrue(c.getGrafo().esCompleto());
 	}
-	
+
 	@Test
 	public void dividirGrafoTest() {
-		Grafo dividido=c.dividirGrafo();
+		Grafo dividido = c.dividirGrafo();
 		assertFalse(BFS.esConexo(dividido));
 	}
-	
-	
+
 	@Test
 	public void ClasificarGrafoGrupo1Test() {
-		ArrayList<Set<Persona>> grupos=c.agruparPersonas();
-	
+		ArrayList<Set<Persona>> grupos = c.agruparPersonas();
+
 		Set<Persona> g1 = new HashSet<Persona>();
 		g1.add(p1);
 		g1.add(p2);
-		
+
 		assertFalse(grupos.get(1).equals(g1));
-			
+
 	}
-	
+
 	@Test
 	public void ClasificarGrafoGrupo2Test() {
-		ArrayList<Set<Persona>> grupos=c.agruparPersonas();
-		
+		ArrayList<Set<Persona>> grupos = c.agruparPersonas();
+
 		Set<Persona> g2 = new HashSet<Persona>();
 		g2.add(p3);
 		g2.add(p4);
-		g2.add(p5);		
+		g2.add(p5);
 		assertFalse(grupos.get(0).equals(g2));
-		
+
 	}
-	
 
 }

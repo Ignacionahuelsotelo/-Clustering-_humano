@@ -6,7 +6,8 @@
       "deporte": 1,
       "espectaculo": 1,
       "ciencia": 1,
-      "arte": 1
+      "arte": 1,
+      "foto": null
     },
     {
       "nombre": "Nacho",
@@ -14,7 +15,8 @@
       "deporte": 1,
       "espectaculo": 1,
       "ciencia": 1,
-      "arte": 1
+      "arte": 1,
+      "foto": null
     },
     {
       "nombre": "Melina",
@@ -22,7 +24,8 @@
       "deporte": 1,
       "espectaculo": 1,
       "ciencia": 1,
-      "arte": 1
+      "arte": 1,
+      "foto": null
   
     }
   ]

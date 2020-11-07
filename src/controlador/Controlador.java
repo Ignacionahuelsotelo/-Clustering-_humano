@@ -3,10 +3,12 @@ package controlador;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.Set;
 
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
@@ -16,6 +18,7 @@ import logica.Grafo;
 import logica.Persona;
 import logica.Punto;
 import visual.Grafico;
+import visual.PanelGrafo;
 import datos.GestorJSON;
 import datos.PersonasJSON;
 
@@ -23,9 +26,11 @@ public class Controlador {
 
 	static Clasificador clasificador = new Clasificador();
 
-	public static void agregarPersona(String nombre, int musica, int deporte, int espectaculo, int ciencia, int arte) {
-		clasificador.cargarPersona(nombre, musica, deporte, espectaculo, ciencia, arte);
-		GestorJSON.agregarPersonas(new Persona(nombre, musica, deporte, espectaculo, ciencia, arte));
+	public static void agregarPersona(String nombre, int musica, int deporte, int espectaculo, int ciencia, int arte, String foto) {
+		clasificador.cargarPersona(nombre, musica, deporte, espectaculo, ciencia, arte, foto);
+		Persona p=new Persona(nombre, musica, deporte, espectaculo, ciencia, arte,foto);
+		//p.setImagen(foto);
+		GestorJSON.agregarPersonas(p);
 
 	}
 
@@ -74,15 +79,30 @@ public class Controlador {
 		ArrayList<Punto> puntos = new ArrayList<Punto>();
 		Punto p;
 
-		for (Persona persona : nuevo.vertices()) {
+		for (int i=0;i<nuevo.tamanio();i++) {
+			Persona persona = nuevo.vertices().get(i);
 
 			centroX = grupo1.contains(persona) ? centroIzq : centroDer;
 
 			p = obtenerPuntoValido(puntos, centroX, centroY, 400,200);
-
+			
 			puntos.add(p);
-			Grafico.agregarCirculo(p.getX(), p.getY(), g);
+			
+//			System.out.println("Esta es la persona: "+ persona.toString());
+//			System.out.println("x: "+ p.getX());
+//			System.out.println("y: "+ p.getY());
+//			
+//			System.out.println("tamanio grafo: "+ nuevo.tamanio());
+			
+			
+			if(persona.tieneImagen()) {
+				Grafico.graficarImagen(persona.getImagen(), p, CambiadorDeVentanas.getPanelGrafo(), g);
+			}else { 
+				Grafico.agregarCirculo(p.getX(), p.getY(), g);
+			}
+			
 			g.drawString(persona.getNombre(), p.getX() - 10, p.getY() - 10);
+			
 
 		}
 

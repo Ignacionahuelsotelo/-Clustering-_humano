@@ -13,20 +13,20 @@ public class PersonaTest {
 
 	@Before
 	public void setUp() throws Exception {
-		p1 = new Persona("A", 1, 1, 1, 1, 1);
-		p2 = new Persona("B", 1, 1, 1, 1, 1);
-		p3 = new Persona("C", 1, 1, 3, 4, 1);
+		p1 = new Persona("A", 1, 1, 1, 1, 1,null);
+		p2 = new Persona("B", 1, 1, 1, 1, 1,null);
+		p3 = new Persona("C", 1, 1, 3, 4, 1,null);
 
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void interesNegativoTest() {
-		new Persona("C", -1, 1, 1, 1, 1);
+		new Persona("C", -1, 1, 1, 1, 1,null);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void interesMayorACincoTest() {
-		new Persona("C", 1, 1, 6, 1, 1);
+		new Persona("C", 1, 1, 6, 1, 1,null);
 	}
 
 	@Test
