@@ -50,12 +50,12 @@ public class Estadisticas extends ModeloVentana{
 				new Font("Showcard Gothic", java.awt.Font.PLAIN, 28), 391, 11, 300, 126);
 
 		createJLabel(panelEstadisticas, "Grupo 1 :  ", new java.awt.Color(105, 105, 105),
-				new Font("Sitka Banner", java.awt.Font.PLAIN, 16), 28, 147, 300, 126);
+				new Font("Showcard Gothic", java.awt.Font.PLAIN, 28), 28, 147, 300, 126);
 		
 //		textNombre = createTextField(panelCarga, new Color(240, 230, 140), 230, 198, 140, 20);
 //
 		createJLabel(panelEstadisticas, "Grupo 2 : ", new java.awt.Color(105, 105, 105),
-				new Font("Sitka Banner", java.awt.Font.PLAIN, 16), 650, 147, 300, 126);
+				new Font("Showcard Gothic", java.awt.Font.PLAIN, 28), 650, 147, 300, 126);
 //		createJLabel(panelCarga, "MUSICA:", new java.awt.Color(105, 105, 105),
 //				new Font("Sitka Banner", java.awt.Font.PLAIN, 16), 28, 249, 300, 126);
 //		createJLabel(panelCarga, "DEPORTE:", new java.awt.Color(105, 105, 105),
@@ -93,20 +93,36 @@ public class Estadisticas extends ModeloVentana{
 		});
 
 		panelEstadisticas.setVisible(false);
-		mostrarEstadisticasGrupo1();
+		
 	}
-	
+
 	public void mostrarEstadisticasGrupo1 () {
-		double[] estadisticas = new double [5];
-		estadisticas = Controlador.getEstadisticasGrupo1();
+		double[] estadisticas = new double [6];
+		double[] estadisticas2 = new double [6];
+		estadisticas = Controlador.getEstadisticasGrupos(0);
+		estadisticas2 = Controlador.getEstadisticasGrupos(1);
 		
+		dibujarEstadisticas(estadisticas, 28);
+
+		if (estadisticas2 != null ) {
+			dibujarEstadisticas(estadisticas2, 650);
+		}
 		
-		
-		createJLabel(panelEstadisticas, "Promedio de Similaridad del Grupo 1 " + estadisticas[0] , new java.awt.Color(105, 105, 105),
-				new Font("Showcard Gothic", java.awt.Font.PLAIN, 28), 391, 11, 300, 126);
 
 		
 		
+		
+		
+	}
+	
+	public void dibujarEstadisticas(double[] estadisticas, int x) {
+		String [] gustos =  {"Similaridad ","Arte","Ciencia","Deporte","Espectaculo","Musica"};
+		int y = 200;
+		for (int i = 0; i < 5; i ++) {
+			createJLabel(panelEstadisticas, "Promedio de : " + gustos[i] + " " +  estadisticas[i] , new java.awt.Color(105, 105, 105),
+					new Font("Showcard Gothic", java.awt.Font.PLAIN, 20), x, y, 700, 126);
+			y = y + 50;
+		}
 	}
 
 }

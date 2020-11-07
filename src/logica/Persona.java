@@ -128,16 +128,7 @@ public class Persona {
 		if (getClass() != obj.getClass())
 			return false;
 		Persona other = (Persona) obj;
-		if (arte != other.arte)
-			return false;
-		if (ciencia != other.ciencia)
-			return false;
-		if (deporte != other.deporte)
-			return false;
-		if (espectaculo != other.espectaculo)
-			return false;
-		if (musica != other.musica)
-			return false;
+		
 		if (nombre == null) {
 			if (other.nombre != null)
 				return false;

@@ -28,6 +28,9 @@ public class Grafo {
 	}
 
 	public void agregarVertice(Persona persona) {
+		if (vertices.contains(persona)) {
+			return;
+		}
 		vertices.add(persona);
 		vecinos.add(new HashSet<Persona>());
 

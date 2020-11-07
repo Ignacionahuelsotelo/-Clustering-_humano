@@ -115,13 +115,23 @@ public class VentanaDeCarga extends ModeloVentana {
 		}
 		return combos;
 	}
-
+	public boolean sePuedeAgregar (ArrayList<JComboBox> combos){
+		for (int i = 0; i < 5;i++) {
+			if (combos.get(i).getSelectedIndex() < 1) {
+				return false;
+			}
+			
+		}
+		return true;
+	}
 	public void guardarDatos(ArrayList<JComboBox> combos) {
-
-		Controlador.agregarPersona(textNombre.getText(), combos.get(1).getSelectedIndex(),
-				combos.get(2).getSelectedIndex(), combos.get(3).getSelectedIndex(), combos.get(4).getSelectedIndex(),
-				combos.get(0).getSelectedIndex(), foto);
-		Controlador.guardarPersona();
+		if (sePuedeAgregar(combos)) {
+			Controlador.agregarPersona(textNombre.getText(), combos.get(1).getSelectedIndex(),
+					combos.get(2).getSelectedIndex(), combos.get(3).getSelectedIndex(), combos.get(4).getSelectedIndex(),
+					combos.get(0).getSelectedIndex(), foto);
+			Controlador.guardarPersona();
+		}
+		
 
 	}
 

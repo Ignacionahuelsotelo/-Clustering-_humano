@@ -100,7 +100,7 @@ public class Controlador {
 		}
 
 		graficarAristaGrupos(g, nuevo, puntos);
-		textoDeGrafo(g);
+		
 
 	}
 
@@ -123,18 +123,24 @@ public class Controlador {
 		g.drawString("Promedio similaridad por tema del grupo 1 " + promedioPorTemas(clasificador.getGrupo1()), 700,700 );
 		g.drawString("Promedio similaridad por tema del grupo 2 " + promedioPorTemas(clasificador.getGrupo2()), 700,750 );
 	}
-	public static double[] getEstadisticasGrupo1 () {
+	public static double[] getEstadisticasGrupos (int k) {
 		double[] estadisticas = new double[6];
 		double [] promedioPorTemas = new double[5];
-		promedioPorTemas = promedioPorTemas(clasificador.getGrupo1());
+		if (obtenerGrupos().get(k).size() < 1 || obtenerGrupos().get(k) == null) {
+			return null;
+		}
+		promedioPorTemas = promedioPorTemas(obtenerGrupos().get(k));
 		double estadisticaGeneral = estadisticasGrupo1();
 		estadisticas[0] = estadisticaGeneral;
 		
-		for (int i = 1; i < promedioPorTemas.length;i++) {
-			estadisticas[i] = promedioPorTemas[i];
+		for (int i = 1; i < estadisticas.length;i++) {
+			
+			estadisticas[i] = promedioPorTemas[i-1];
 		}
 		return estadisticas;
 	}
+	
+	
 	
 
 	public static double[] promedioPorTemas(Set<Persona> grup) {
@@ -150,9 +156,14 @@ public class Controlador {
 		for (Persona p : grup) {
 			actual = p.promedioDeInteresesPorTema();
 			for (int i = 0 ; i < actual.length; i++) {
-				actual[i] = actual[i] /5;
-				prom[i] = prom[i] + actual[i];
+				actual[i] = actual[i] / grup.size();
+				prom[i] = prom[i] + actual[i] ;
 			}
+		}
+		
+		for (double d : prom ) {
+			d = Math.floor(d*100)/100;
+		
 		}
 		
 		
@@ -248,6 +259,9 @@ public class Controlador {
 
 	public static double promedioDeSimilaridad(Set<Persona> grup) {
 		double prom = 0;
+		if (grup.size() < 2) {
+			return 0;
+		}
 		for (Persona p : grup) {
 			for (Persona otro : grup) {
 				prom = prom + p.indiceDeSimilaridad(otro);

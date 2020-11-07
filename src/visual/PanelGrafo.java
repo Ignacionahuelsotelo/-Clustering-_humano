@@ -14,7 +14,7 @@ public class PanelGrafo extends JPanel {
 		super.paintComponent(g);
 		Controlador.graficarGrupos(g);
 		
-		System.out.println("Se coorre paint");
+
 	}
 	
 	
