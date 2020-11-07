@@ -3,12 +3,11 @@ package controlador;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Image;
+
 import java.util.ArrayList;
 import java.util.Set;
 
 import javax.swing.DefaultListModel;
-import javax.swing.ImageIcon;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
@@ -18,7 +17,6 @@ import logica.Grafo;
 import logica.Persona;
 import logica.Punto;
 import visual.Grafico;
-import visual.PanelGrafo;
 import datos.GestorJSON;
 import datos.PersonasJSON;
 
@@ -89,18 +87,12 @@ public class Controlador {
 			
 			puntos.add(p);
 			
-//			System.out.println("Esta es la persona: "+ persona.toString());
-//			System.out.println("x: "+ p.getX());
-//			System.out.println("y: "+ p.getY());
-//			
-//			System.out.println("tamanio grafo: "+ nuevo.tamanio());
-			
-			
-			if(persona.tieneImagen()) {
-				Grafico.graficarImagen(persona.getImagen(), p, CambiadorDeVentanas.getPanelGrafo(), g);
-			}else { 
+
+//			if(persona.tieneImagen()) {
+//				Grafico.graficarImagen(persona.getImagen(), p, CambiadorDeVentanas.getPanelGrafo(), g);
+//			}else { 
 				Grafico.agregarCirculo(p.getX(), p.getY(), g);
-			}
+//			}
 			
 			g.drawString(persona.getNombre(), p.getX() - 10, p.getY() - 10);
 			
@@ -187,10 +179,10 @@ public class Controlador {
 
 	}
 
-	public static JList crearLista() {
+	public static JList<String> crearLista() {
 		Font fuenteLista = new Font("Showcard Gothic", java.awt.Font.PLAIN, 20);
 		Color foreGround = new java.awt.Color(250, 250, 210);
-		JList list = new JList<>(recorrerDatosPersonas(getDatosPersonas()));
+		JList<String> list = new JList<>(recorrerDatosPersonas(getDatosPersonas()));
 		list.setBounds(0, 0, 328, 521);
 
 		list.setFont(fuenteLista);
@@ -201,7 +193,7 @@ public class Controlador {
 	}
 
 	public static void agregarLista(JPanel panel) {
-		JList list = crearLista();
+		JList<String> list = crearLista();
 		panel.removeAll();
 		panel.add(list);
 

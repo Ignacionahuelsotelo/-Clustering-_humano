@@ -1,17 +1,9 @@
 {
   "personas": [
     {
-      "nombre": "a",
+      "nombre": "Hola",
       "musica": 3,
-      "deporte": 4,
-      "espectaculo": 3,
-      "ciencia": 3,
-      "arte": 5
-    },
-    {
-      "nombre": "a",
-      "musica": 3,
-      "deporte": 5,
+      "deporte": 3,
       "espectaculo": 3,
       "ciencia": 3,
       "arte": 3,
