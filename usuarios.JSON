@@ -2,11 +2,12 @@
   "personas": [
     {
       "nombre": "Hola",
-      "musica": 2,
-      "deporte": 2,
-      "espectaculo": 1,
-      "ciencia": 1,
-      "arte": 1
+      "musica": 5,
+      "deporte": 5,
+      "espectaculo": 5,
+      "ciencia": 5,
+      "arte": 5,
+      "foto": "/home/paz/Sistemas/ProgramacionIII/imagenesTp2/WhatsApp Image 2020-11-05 at 17.39.11.jpeg"
     }
   ]
 }

@@ -44,22 +44,18 @@ public class VentanaInicial extends ModeloVentana {
 		panelInicial.setBounds(0, 0, 1400, 750);
 		panelInicial.setBorder(null);
 		panelInicial.setLayout(null);
-		panelInicial.setBackground(new java.awt.Color(250, 250, 210));
+		panelInicial.setBackground(getColor(250, 250, 210));
 
-		Font fuente = new Font("Showcard Gothic", java.awt.Font.PLAIN, 38); // para cambiar el tama�o de la letra es
-																			// mejor hacerlo en la fuente !!
-		JLabel titulo = createJLabel(panelInicial, "Clustering Humano", new java.awt.Color(105, 105, 105), fuente, 95,
-				81, 89, 27);
-		titulo.setBounds(454, 30, 401, 94);
-		Font fuenteSubTitulo = new Font("Showcard Gothic", java.awt.Font.PLAIN, 25);
-		JLabel subTitulo = createJLabel(panelInicial, "Nombres de Usuarios : ", new java.awt.Color(105, 105, 105),
-				fuenteSubTitulo, 43, -140, 328, 521);
+		JLabel titulo = createJLabel(panelInicial, "Clustering Humano", getColor(105, 105, 105), fuenteGothic(38), 454,
+				30, 401, 94);
 
-		Color foreGround = new java.awt.Color(51, 51, 51);
-		Font buttonFont = new Font("Sitka Banner", java.awt.Font.PLAIN, 15);
-		Color background = new Color(240, 230, 140);
-		JButton btnNewButton = createButton(panelInicial, "Cargar datos", foreGround, buttonFont, background, 438, 366,
+		JLabel subTitulo = createJLabel(panelInicial, "Nombres de Usuarios : ", getColor(105, 105, 105),
+				fuenteGothic(25), 43, -140, 328, 521);
+
+		
+		JButton btnNewButton = createButton(panelInicial, "Cargar datos", 438, 366,
 				138, 67);
+
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				cVent.cambiarACarga();
@@ -67,7 +63,7 @@ public class VentanaInicial extends ModeloVentana {
 			}
 		});
 
-		JButton btnClustering = createButton(panelInicial, "MATCH", foreGround, buttonFont, background, 688, 366, 138,
+		JButton btnClustering = createButton(panelInicial, "MATCH", 688, 366, 138,
 				67);
 		btnClustering.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -79,7 +75,7 @@ public class VentanaInicial extends ModeloVentana {
 
 		panelPersonasCargadas = new JPanel();
 		panelPersonasCargadas.setBounds(43, 148, 328, 521);
-		panelPersonasCargadas.setBackground(new java.awt.Color(250, 250, 210));
+		panelPersonasCargadas.setBackground(getColor(250, 250, 210));
 		panelInicial.add(panelPersonasCargadas);
 		panelPersonasCargadas.setLayout(null);
 

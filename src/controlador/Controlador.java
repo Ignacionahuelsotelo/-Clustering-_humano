@@ -27,7 +27,6 @@ public class Controlador {
 	public static void agregarPersona(String nombre, int musica, int deporte, int espectaculo, int ciencia, int arte, String foto) {
 		clasificador.cargarPersona(nombre, musica, deporte, espectaculo, ciencia, arte, foto);
 		Persona p=new Persona(nombre, musica, deporte, espectaculo, ciencia, arte,foto);
-		//p.setImagen(foto);
 		GestorJSON.agregarPersonas(p);
 
 	}
@@ -115,14 +114,6 @@ public class Controlador {
 		}
 	}
 
-	private static void textoDeGrafo(Graphics g) {
-		g.drawString("Grupo 1: " + clasificador.getGrupo1().toString(), 700, 500);
-		g.drawString("Grupo 2: " + clasificador.getGrupo2().toString(), 700, 550);
-		g.drawString("Promedio similaridad grupo 1:  " + estadisticasGrupo1(), 700, 600);
-		g.drawString("Promedio similaridad grupo 2:  " + estadisticasGrupo2(), 700, 650);
-		g.drawString("Promedio similaridad por tema del grupo 1 " + promedioPorTemas(clasificador.getGrupo1()), 700,700 );
-		g.drawString("Promedio similaridad por tema del grupo 2 " + promedioPorTemas(clasificador.getGrupo2()), 700,750 );
-	}
 	public static double[] getEstadisticasGrupos (int k) {
 		double[] estadisticas = new double[6];
 		double [] promedioPorTemas = new double[5];

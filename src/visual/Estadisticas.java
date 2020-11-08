@@ -46,34 +46,19 @@ public class Estadisticas extends ModeloVentana{
 		panelEstadisticas.setBackground(new java.awt.Color(250, 250, 210));
 
 		// Crea los JLABEL
-		createJLabel(panelEstadisticas, "Estadisticas", new java.awt.Color(105, 105, 105),
-				new Font("Showcard Gothic", java.awt.Font.PLAIN, 28), 391, 11, 300, 126);
+		createJLabel(panelEstadisticas, "Estadisticas", getColor(105, 105, 105),
+				fuenteGothic(28), 391, 11, 300, 126);
 
-		createJLabel(panelEstadisticas, "Grupo 1 :  ", new java.awt.Color(105, 105, 105),
-				new Font("Showcard Gothic", java.awt.Font.PLAIN, 28), 28, 147, 300, 126);
+		createJLabel(panelEstadisticas, "Grupo 1 :  ", getColor(105, 105, 105),
+				fuenteGothic(28), 28, 147, 300, 126);
 		
-//		textNombre = createTextField(panelCarga, new Color(240, 230, 140), 230, 198, 140, 20);
-//
-		createJLabel(panelEstadisticas, "Grupo 2 : ", new java.awt.Color(105, 105, 105),
-				new Font("Showcard Gothic", java.awt.Font.PLAIN, 28), 650, 147, 300, 126);
-//		createJLabel(panelCarga, "MUSICA:", new java.awt.Color(105, 105, 105),
-//				new Font("Sitka Banner", java.awt.Font.PLAIN, 16), 28, 249, 300, 126);
-//		createJLabel(panelCarga, "DEPORTE:", new java.awt.Color(105, 105, 105),
-//				new Font("Sitka Banner", java.awt.Font.PLAIN, 16), 28, 300, 300, 126);
-//		createJLabel(panelCarga, "ESPECTACULO:", new java.awt.Color(105, 105, 105),
-//				new Font("Sitka Banner", java.awt.Font.PLAIN, 16), 28, 351, 300, 126);
-//		createJLabel(panelCarga, "CIENCIA:", new java.awt.Color(105, 105, 105),
-//				new Font("Sitka Banner", java.awt.Font.PLAIN, 16), 28, 402, 300, 126);
+		createJLabel(panelEstadisticas, "Grupo 2 : ", getColor(105, 105, 105),
+				fuenteGothic(28), 650, 147, 300, 126);
 
 		
 
-		// Crea los botones
-		Color foreGround = new java.awt.Color(51, 51, 51);
-		Font buttonFont = new Font("Sitka Banner", java.awt.Font.PLAIN, 15);
-		Color background = new Color(240, 230, 140);
 
-		
-		JButton volver = createButton(panelEstadisticas, "Volver al menu principal", foreGround, buttonFont, background, 720,
+		JButton volver = createButton(panelEstadisticas, "Volver al menu principal", 720,
 				617, 189, 40);
 		volver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -81,7 +66,7 @@ public class Estadisticas extends ModeloVentana{
 			}
 		});
 
-		JButton guardar = createButton(panelEstadisticas, "Volver al grafo", foreGround, buttonFont, background, 200, 617, 189, 40);
+		JButton guardar = createButton(panelEstadisticas, "Volver al grafo", 200, 617, 189, 40);
 		guardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
@@ -119,8 +104,8 @@ public class Estadisticas extends ModeloVentana{
 		String [] gustos =  {"Similaridad ","Arte","Ciencia","Deporte","Espectaculo","Musica"};
 		int y = 200;
 		for (int i = 0; i < 5; i ++) {
-			createJLabel(panelEstadisticas, "Promedio de : " + gustos[i] + " " +  estadisticas[i] , new java.awt.Color(105, 105, 105),
-					new Font("Showcard Gothic", java.awt.Font.PLAIN, 20), x, y, 700, 126);
+			createJLabel(panelEstadisticas, "Promedio de : " + gustos[i] + " " +  estadisticas[i] , getColor(105, 105, 105),
+					fuenteGothic(20), x, y, 700, 126);
 			y = y + 50;
 		}
 	}
