@@ -3,7 +3,11 @@ package visual;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 import logica.Punto;
@@ -32,9 +36,14 @@ public class Grafico {
 
 	}
 	
-	public static void graficarImagen(String url, Punto p, PanelGrafo panel, Graphics g) {
-		Image img = new ImageIcon(url).getImage();
-		img=img.getScaledInstance(40, 40, Image.SCALE_DEFAULT);
-		g.drawImage(img,p.getX(),p.getY(),panel);
+	public static void graficarImagen(String url, Punto p, Graphics g) {
+		BufferedImage img;
+        try {
+                img = ImageIO.read(new File(url));
+                g.drawImage(img, p.getX(), p.getY(), 40, 40, null);
+        } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+        }
 	}
 }

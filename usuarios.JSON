@@ -1,12 +1,12 @@
 {
   "personas": [
     {
-      "nombre": "faafa",
-      "musica": 5,
-      "deporte": 5,
-      "espectaculo": 5,
-      "ciencia": 5,
-      "arte": 5
+      "nombre": "Hola",
+      "musica": 2,
+      "deporte": 2,
+      "espectaculo": 1,
+      "ciencia": 1,
+      "arte": 1
     }
   ]
 }

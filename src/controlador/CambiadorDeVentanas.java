@@ -36,7 +36,5 @@ public class CambiadorDeVentanas {
 		
 	}
 	
-	public static PanelGrafo getPanelGrafo() {
-		return m.getPanelGrafo();
-	}
+
 }

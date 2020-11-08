@@ -38,6 +38,7 @@ public class VentanaGrafo extends ModeloVentana {
 		Color foreGround = new java.awt.Color(51, 51, 51);
 		Font buttonFont = new Font("Sitka Banner", java.awt.Font.PLAIN, 15);
 		Color background = new Color(240, 230, 140);
+		
 		JButton volverAlInicio = createButton(panelGrafo, "Volver", foreGround, buttonFont, background, 100, 600, 138,
 				67);
 		volverAlInicio.addActionListener(new ActionListener() {

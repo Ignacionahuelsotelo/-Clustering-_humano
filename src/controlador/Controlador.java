@@ -88,11 +88,11 @@ public class Controlador {
 			puntos.add(p);
 			
 
-//			if(persona.tieneImagen()) {
-//				Grafico.graficarImagen(persona.getImagen(), p, CambiadorDeVentanas.getPanelGrafo(), g);
-//			}else { 
+			if(persona.tieneImagen()) {
+				Grafico.graficarImagen(persona.getImagen(), p, g);
+			}else { 
 				Grafico.agregarCirculo(p.getX(), p.getY(), g);
-//			}
+			}
 			
 			g.drawString(persona.getNombre(), p.getX() - 10, p.getY() - 10);
 			

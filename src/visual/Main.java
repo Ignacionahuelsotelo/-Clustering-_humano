@@ -129,10 +129,7 @@ public class Main {
 		ventanaEstadisticas.mostrarEstadisticasGrupo1();
 	}
 
-	public PanelGrafo getPanelGrafo() {
-		return panelGrafo;
-	}
-		
+	
 	
 
 }
