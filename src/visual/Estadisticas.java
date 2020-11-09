@@ -59,7 +59,7 @@ public class Estadisticas extends ModeloVentana{
 
 
 		JButton volver = createButton(panelEstadisticas, "Volver al menu principal", 720,
-				617, 189, 40);
+				617, 220, 40);
 		volver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				cVent.cambiarAInicial();

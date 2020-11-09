@@ -47,7 +47,7 @@ public class VentanaGrafo extends ModeloVentana {
 			}
 		});
 		
-		JButton estadisticas = createButton(panelGrafo, "Ver estadisticas", 700, 600, 138,
+		JButton estadisticas = createButton(panelGrafo, "Ver estadisticas", 700, 600, 150,
 				67);
 		estadisticas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

@@ -1,12 +1,21 @@
 {
   "personas": [
     {
-      "nombre": "Hola",
+      "nombre": "Nuevo",
       "musica": 5,
       "deporte": 5,
       "espectaculo": 5,
       "ciencia": 5,
       "arte": 5,
+      "foto": "/home/paz/Sistemas/ProgramacionIII/imagenesTp2/WhatsApp Image 2020-11-05 at 17.39.11 (1).jpeg"
+    },
+    {
+      "nombre": "Nueva",
+      "musica": 4,
+      "deporte": 5,
+      "espectaculo": 4,
+      "ciencia": 3,
+      "arte": 3,
       "foto": "/home/paz/Sistemas/ProgramacionIII/imagenesTp2/WhatsApp Image 2020-11-05 at 17.39.11.jpeg"
     }
   ]
