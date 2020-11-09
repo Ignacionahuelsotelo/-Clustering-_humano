@@ -5,7 +5,7 @@
 
  >Este es un trabajo práctico de la Universidad de General Sarmiento, la consigna puede verse en el siguiente [enlace](https://drive.google.com/file/d/1QSn7nHF9viXuROWrjeVQMBZ6WsowQFe6/view?usp=sharing)
 
- >El informe correspondiente a este proyecto puede verse [informe]()https://drive.google.com/file/d/1yiaJ5mw35teU9SeRTQtmX5tuH6VZzGa6/view?usp=sharing
+ >El informe correspondiente a este proyecto puede verse [informe](https://drive.google.com/file/d/1yiaJ5mw35teU9SeRTQtmX5tuH6VZzGa6/view?usp=sharing)
 
  ### Tareas
 
